@@ -38,5 +38,10 @@ namespace Laundry___Dormitory
             Main_Menu.Show(this);
             Visible = false;
         }
+
+        private void btnAP_Transact_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

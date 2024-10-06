@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -45,6 +45,10 @@
             this.btnView = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvBoarder = new System.Windows.Forms.DataGridView();
+            this.TenantNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -54,7 +58,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.btnRemove);
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.btnAdd);
@@ -62,33 +66,34 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 450);
+            this.panel1.Size = new System.Drawing.Size(200, 501);
             this.panel1.TabIndex = 11;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
-            // button2
+            // btnSearch
             // 
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(0, 256);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 79);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Search Tenant";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSearch.Location = new System.Drawing.Point(0, 256);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(200, 79);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Search Tenant";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnRemove
             // 
             this.btnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnRemove.FlatAppearance.BorderSize = 0;
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRemove.Location = new System.Drawing.Point(0, 156);
@@ -105,7 +110,7 @@
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
             this.btnBack.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBack.Location = new System.Drawing.Point(3, 360);
@@ -122,7 +127,7 @@
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAdd.Location = new System.Drawing.Point(0, 52);
@@ -147,7 +152,7 @@
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Britannic Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(82)))), ((int)(((byte)(69)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
@@ -164,9 +169,9 @@
             this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.btnView);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(200, 271);
+            this.panel2.Location = new System.Drawing.Point(200, 322);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(600, 179);
+            this.panel2.Size = new System.Drawing.Size(553, 179);
             this.panel2.TabIndex = 12;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
@@ -176,10 +181,10 @@
             this.btnPaymentInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnPaymentInfo.FlatAppearance.BorderSize = 0;
             this.btnPaymentInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPaymentInfo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaymentInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentInfo.Image")));
             this.btnPaymentInfo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPaymentInfo.Location = new System.Drawing.Point(302, 3);
+            this.btnPaymentInfo.Location = new System.Drawing.Point(271, 3);
             this.btnPaymentInfo.Name = "btnPaymentInfo";
             this.btnPaymentInfo.Size = new System.Drawing.Size(298, 79);
             this.btnPaymentInfo.TabIndex = 7;
@@ -193,32 +198,34 @@
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEdit.Location = new System.Drawing.Point(0, 100);
+            this.btnEdit.Location = new System.Drawing.Point(-32, 100);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(600, 79);
             this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit Tenant/Room";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnView
             // 
             this.btnView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnView.FlatAppearance.BorderSize = 0;
             this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnView.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnView.Image = ((System.Drawing.Image)(resources.GetObject("btnView.Image")));
             this.btnView.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnView.Location = new System.Drawing.Point(0, 9);
+            this.btnView.Location = new System.Drawing.Point(-29, 9);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(296, 79);
             this.btnView.TabIndex = 5;
             this.btnView.Text = "View Rooms";
             this.btnView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // panel4
             // 
@@ -232,46 +239,81 @@
             // 
             // dgvBoarder
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.dgvBoarder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.dgvBoarder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvBoarder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.dgvBoarder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBoarder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBoarder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBoarder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvBoarder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBoarder.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvBoarder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TenantNameColumn,
+            this.RoomNumberColumn,
+            this.PhoneNumberColumn,
+            this.StartingDateColumn});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBoarder.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvBoarder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBoarder.Location = new System.Drawing.Point(0, 0);
             this.dgvBoarder.Name = "dgvBoarder";
+            this.dgvBoarder.RowHeadersWidth = 51;
             this.dgvBoarder.Size = new System.Drawing.Size(600, 274);
             this.dgvBoarder.TabIndex = 0;
+            this.dgvBoarder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBoarder_CellContentClick);
+            // 
+            // TenantNameColumn
+            // 
+            this.TenantNameColumn.HeaderText = "Name";
+            this.TenantNameColumn.MinimumWidth = 6;
+            this.TenantNameColumn.Name = "TenantNameColumn";
+            this.TenantNameColumn.Width = 125;
+            // 
+            // RoomNumberColumn
+            // 
+            this.RoomNumberColumn.HeaderText = "Room Number";
+            this.RoomNumberColumn.MinimumWidth = 6;
+            this.RoomNumberColumn.Name = "RoomNumberColumn";
+            this.RoomNumberColumn.Width = 125;
+            // 
+            // PhoneNumberColumn
+            // 
+            this.PhoneNumberColumn.HeaderText = "Phone Number";
+            this.PhoneNumberColumn.MinimumWidth = 6;
+            this.PhoneNumberColumn.Name = "PhoneNumberColumn";
+            this.PhoneNumberColumn.Width = 125;
+            // 
+            // StartingDateColumn
+            // 
+            this.StartingDateColumn.HeaderText = "Rent Status";
+            this.StartingDateColumn.MinimumWidth = 6;
+            this.StartingDateColumn.Name = "StartingDateColumn";
+            this.StartingDateColumn.Width = 125;
             // 
             // Main_Menu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(753, 501);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main_Menu";
@@ -295,12 +337,16 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvBoarder;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnPaymentInfo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenantNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomNumberColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumberColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartingDateColumn;
     }
 }
 
