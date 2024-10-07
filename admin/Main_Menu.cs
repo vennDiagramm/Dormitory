@@ -44,6 +44,7 @@ namespace Laundry___Dormitory
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // To create new floating window
             Form formBackground = new Form();
             try
             {
@@ -76,6 +77,7 @@ namespace Laundry___Dormitory
 
         private void btnPaymentInfo_Click(object sender, EventArgs e)
         {
+            // To create new floating window
             Form formBackground = new Form();
             try
             {
@@ -106,6 +108,7 @@ namespace Laundry___Dormitory
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            // To create new floating window
             Form formBackground = new Form();
             try
             {
@@ -136,6 +139,7 @@ namespace Laundry___Dormitory
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            // To create new floating window
             Form formBackground = new Form();
             Search_Tenant uu = new Search_Tenant();
             try
@@ -183,6 +187,7 @@ namespace Laundry___Dormitory
         SqlCommand cmd;
         SqlDataReader reader;
 
+        // Viewing 
         private void btnView_Click(object sender, EventArgs e)
         {
             con = cn.getConnection();
@@ -204,6 +209,7 @@ namespace Laundry___Dormitory
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            // To create new floating window
             Form formBackground = new Form();
             try
             {
