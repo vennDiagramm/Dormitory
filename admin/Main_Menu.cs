@@ -187,7 +187,7 @@ namespace Laundry___Dormitory
         SqlCommand cmd;
         SqlDataReader reader;
 
-        // Viewing 
+        // Viewing - Responsible for viewing
         private void btnView_Click(object sender, EventArgs e)
         {
             con = cn.getConnection();
