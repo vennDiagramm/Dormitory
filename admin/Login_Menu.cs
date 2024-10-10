@@ -20,6 +20,7 @@ namespace Laundry___Dormitory
         public Login_Menu()
         {
             InitializeComponent();
+            Passwordtxtbox.KeyDown += Passwordtxtbox_KeyDown;
         }
 
         private void loginbtn_Click(object sender, EventArgs e)
@@ -53,6 +54,24 @@ namespace Laundry___Dormitory
                 Point mousePose = Control.MousePosition;
                 mousePose.Offset(mouseLocation.X, mouseLocation.Y);
                 Location = mousePose;
+            }
+        }
+
+        private void Passwordtxtbox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Passwordtxtbox.Clear();
+        }
+
+        private void Passwordtxtbox_TextChanged(object sender, EventArgs e)
+        {
+            Passwordtxtbox.PasswordChar = '*';
+        }
+
+        private void Passwordtxtbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginbtn_Click(this, new EventArgs());
             }
         }
     }

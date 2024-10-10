@@ -37,11 +37,13 @@ namespace Laundry___Dormitory
             }
         }
 
+        // para sa exit
         private void button2_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
 
+        // para sa add window
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // To create new floating window
@@ -74,7 +76,7 @@ namespace Laundry___Dormitory
         }
 
        
-
+        // para sa payment window
         private void btnPaymentInfo_Click(object sender, EventArgs e)
         {
             // To create new floating window
@@ -106,6 +108,7 @@ namespace Laundry___Dormitory
             finally { formBackground.Dispose(); }
         }
 
+        // para sa remove
         private void btnRemove_Click(object sender, EventArgs e)
         {
             // To create new floating window
@@ -137,6 +140,8 @@ namespace Laundry___Dormitory
             finally { formBackground.Dispose(); }
         }
 
+
+        // para sa search
         private void btnSearch_Click(object sender, EventArgs e)
         {
             // To create new floating window
@@ -177,36 +182,7 @@ namespace Laundry___Dormitory
             }
         }
 
-        private void dgvBoarder_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        Koneksyon cn = new Koneksyon();
-        SqlConnection con;
-        SqlCommand cmd;
-        SqlDataReader reader;
-
-        // Viewing - Responsible for viewing
-        private void btnView_Click(object sender, EventArgs e)
-        {
-            con = cn.getConnection();
-            con.Open();
-
-            cmd = new SqlCommand("select * from DormTable", con); //select RoomNumber, TenantName, PhoneNumber, RentStatus from DormTable
-            reader = cmd.ExecuteReader();
-            dgvBoarder.Rows.Clear();
-
-            while (reader.Read())
-            {
-                dgvBoarder.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString());
-            }
-
-            cmd.Dispose();
-            reader.Close();
-            con.Close();
-        }
-
+        // edit window
         private void btnEdit_Click(object sender, EventArgs e)
         {
             // To create new floating window
@@ -235,10 +211,43 @@ namespace Laundry___Dormitory
             {
                 MessageBox.Show(ex.Message);
             }
-            finally {
+            finally
+            {
                 dgvBoarder.Rows.Clear();
-                formBackground.Dispose(); 
+                formBackground.Dispose();
             }
+        }
+
+        // ma krazy ang gui pag e del
+        private void dgvBoarder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        /// Para sa viewing [sa main menu magawa]
+        Koneksyon cn = new Koneksyon();
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader reader;
+
+        // Viewing - Responsible for viewing
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            con = cn.getConnection();
+            con.Open();
+
+            cmd = new SqlCommand("select * from DormTable", con); //select RoomNumber, TenantName, PhoneNumber, RentStatus from DormTable
+            reader = cmd.ExecuteReader();
+            dgvBoarder.Rows.Clear();
+
+            while (reader.Read())
+            {
+                dgvBoarder.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString());
+            }
+
+            cmd.Dispose();
+            reader.Close();
+            con.Close();
         }
     }
 }
