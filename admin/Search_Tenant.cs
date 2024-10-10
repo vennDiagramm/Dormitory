@@ -56,38 +56,45 @@ namespace Laundry___Dormitory
                 // Check if txtST_RoomNumber is a valid integer
                 if (int.TryParse(txtST_RoomNumber.Text, out int roomNumber))
                 {
-                    if (!string.IsNullOrEmpty(txtST_RoomNumber.Text))
+                    if (roomNumber > 0)
                     {
-                        // Check if the combination of RoomNumber and TenantName exists in the database
-                        cmd = new SqlCommand("SELECT * FROM DormTable WHERE RoomNumber = @RoomNumber", con);
-                        cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);                       
-
-                        reader = cmd.ExecuteReader();
-
-                        if (reader.HasRows)
+                        if (!string.IsNullOrEmpty(txtST_RoomNumber.Text))
                         {
-                            // Read the data if the combination exists
-                            while (reader.Read())
-                            {
-                                result[0] = reader[0].ToString();
-                                result[1] = reader[1].ToString();
-                                result[2] = reader[2].ToString();
-                                result[3] = reader[3].ToString();                                
-                            }
+                            // Check if the combination of RoomNumber and TenantName exists in the database
+                            cmd = new SqlCommand("SELECT * FROM DormTable WHERE RoomNumber = @RoomNumber", con);
+                            cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
 
-                            Form Main_Menu = new Main_Menu();
-                            Main_Menu.Show(this);
-                            Visible = false;
+                            reader = cmd.ExecuteReader();
+
+                            if (reader.HasRows)
+                            {
+                                // Read the data if the combination exists
+                                while (reader.Read())
+                                {
+                                    result[0] = reader[0].ToString();
+                                    result[1] = reader[1].ToString();
+                                    result[2] = reader[2].ToString();
+                                    result[3] = reader[3].ToString();
+                                }
+
+                                Form Main_Menu = new Main_Menu();
+                                Main_Menu.Show(this);
+                                Visible = false;
+                            }
+                            else
+                            {
+                                // If no rows are found, show an error message
+                                MessageBox.Show("No tenant found with the given Room Number.");
+                            }
                         }
                         else
                         {
-                            // If no rows are found, show an error message
-                            MessageBox.Show("No tenant found with the given Room Number.");
+                            MessageBox.Show("Room Number must be filled.");
                         }
-                    }
+                    } 
                     else
                     {
-                        MessageBox.Show("Room Number must be filled.");
+                        MessageBox.Show("There is no such thing as a negative room number. Please double check.");
                     }
                 }
                 else
@@ -113,7 +120,10 @@ namespace Laundry___Dormitory
                     con.Close();
                 }
 
-                cmd.Dispose();
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
             }
         }
     }
