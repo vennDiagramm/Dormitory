@@ -65,5 +65,15 @@ namespace Laundry___Dormitory.Properties {
                 return ((string)(this["DormDTBConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DLMG;Initial Catalog=DormDB;Integrated Security=True;Encrypt=False")]
+        public string DormDBConnectionString {
+            get {
+                return ((string)(this["DormDBConnectionString"]));
+            }
+        }
     }
 }

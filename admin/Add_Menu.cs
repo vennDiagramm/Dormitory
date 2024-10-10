@@ -66,18 +66,17 @@ namespace Laundry___Dormitory
                             !string.IsNullOrEmpty(txtAddPhone.Text) && !string.IsNullOrEmpty(txtSD.Text))
                         {
                             // Check for duplicate Room Number and Tenant Name before inserting
-                            string checkQuery = "SELECT COUNT(*) FROM DormTable WHERE RoomNumber = @roomNumber AND TenantName = @tenantName";
+                            string checkQuery = "SELECT COUNT(*) FROM DormTable WHERE RoomNumber = @roomNumber";
                             using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
                             {
                                 // Use parameters to prevent SQL injection
-                                checkCmd.Parameters.AddWithValue("@roomNumber", roomNumber);
-                                checkCmd.Parameters.AddWithValue("@tenantName", txtAddTenant.Text);
+                                checkCmd.Parameters.AddWithValue("@roomNumber", roomNumber);                               
 
                                 int count = (int)checkCmd.ExecuteScalar(); // Execute the query and get the result
 
                                 if (count > 0) // If a duplicate exists
                                 {
-                                    MessageBox.Show("This Tenant already exists. Please double check.");
+                                    MessageBox.Show("This Room is already occupied. Please double check.");
                                     return; // Stop further execution to prevent the insert
                                 }
                             }
