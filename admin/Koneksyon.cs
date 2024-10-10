@@ -28,6 +28,6 @@ namespace Laundry___Dormitory.admin
     */
 
     /**@author Marga
-     Laptop: 
+     Laptop: Data Source=LAPTOP-SPR4SQLD;Initial Catalog=DormDTB;Integrated Security=True;Encrypt=False
     */
 }
