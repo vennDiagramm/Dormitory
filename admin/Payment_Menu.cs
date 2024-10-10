@@ -83,10 +83,13 @@ namespace Laundry___Dormitory
                                         // Saving to the database
                                         cmd = new SqlCommand("UPDATE DormTable SET MonthlyBill = @MonthlyBill, PaymentStatus = @PaymentStatus WHERE RoomNumber = @RoomNumber", con);
                                         cmd.Parameters.AddWithValue("@MonthlyBill", 0);
-                                        cmd.Parameters.AddWithValue("@PaymentStatus","Paid");
+                                        cmd.Parameters.AddWithValue("@PaymentStatus", "Paid");
                                         cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
 
                                         cmd.ExecuteNonQuery();
+
+                                        // Diri e tawag ang method para ma butang sa isa ka table
+                                        InsertPayment(roomNumber, (decimal)monthlyBill, DateTime.Now, "Paid");
 
                                         // Clearing fields
                                         Changelbl.Text = remainingAmountStr;
@@ -113,20 +116,19 @@ namespace Laundry___Dormitory
                     }
                 }
                 else
-                {
-                    // Show error message if room number or phone number are invalid
+                { // Show error message if room number or phone number are invalid
                     MessageBox.Show("Please enter valid numeric values for Room Number.");
                 }
             }
             catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message); // Catch any errors that occur during execution
+            { // Normal catching
+                MessageBox.Show(ex.Message); 
             }
             finally
             {
                 if (con != null && con.State == ConnectionState.Open)
-                {
-                    con.Close(); // Ensure the connection is closed after operation
+                { // para jud ma close
+                    con.Close(); 
                 }
             }
         }
@@ -214,9 +216,9 @@ namespace Laundry___Dormitory
 
         }
 
+        // para inig sulod mo load dayon
         private void Payment_Menu_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dormDTBDataSet1.DormTable' table. You can move, or remove it, as needed.
             con = cn.getConnection();
             con.Open();
 
@@ -314,6 +316,77 @@ namespace Laundry___Dormitory
         private void PaymentGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        // for the date and stuff
+        private void InsertPayment(int roomNumber, decimal paymentAmount, DateTime paymentDate, string paymentStatus)
+        {
+                try
+                {
+                    con = cn.getConnection(); 
+                    con.Open();
+                
+
+                    string query = "INSERT INTO PaymentsTable (RoomNumber, PaymentAmount, PaymentDate, PaymentStatus) VALUES (@RoomNumber, @PaymentAmount, @PaymentDate, @PaymentStatus)";
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        // Add parameters to the SQL command
+                        cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                        cmd.Parameters.AddWithValue("@PaymentAmount", paymentAmount);
+                        cmd.Parameters.AddWithValue("@PaymentDate", paymentDate);
+                        cmd.Parameters.AddWithValue("@PaymentStatus", paymentStatus);
+
+                        int rowsAffected = cmd.ExecuteNonQuery(); // Execute the insert command
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Payment recorded successfully.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to record payment.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    con.Close(); // Ensure the connection is closed after operation
+                }  
+        }
+
+        private void btn_PM_ViewAll_Click(object sender, EventArgs e)
+        {
+            // To create new floating window
+            Form formBackground = new Form();
+            try
+            {
+                using (Payment_History uu = new Payment_History())
+                {
+                    formBackground.StartPosition = FormStartPosition.Manual;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = .50d;
+                    formBackground.BackColor = Color.Black;
+                    formBackground.WindowState = FormWindowState.Minimized;
+                    formBackground.TopMost = true;
+                    formBackground.Location = this.Location;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { formBackground.Dispose(); }
         }
     }
 }

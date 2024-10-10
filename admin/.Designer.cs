@@ -171,7 +171,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(200, 322);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(553, 179);
+            this.panel2.Size = new System.Drawing.Size(580, 179);
             this.panel2.TabIndex = 12;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
@@ -232,7 +232,7 @@
             this.panel4.Controls.Add(this.dgvBoarder);
             this.panel4.Location = new System.Drawing.Point(200, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(600, 274);
+            this.panel4.Size = new System.Drawing.Size(580, 274);
             this.panel4.TabIndex = 13;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
@@ -245,8 +245,6 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.dgvBoarder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBoarder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.dgvBoarder.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBoarder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -273,7 +271,7 @@
             this.dgvBoarder.Location = new System.Drawing.Point(0, 0);
             this.dgvBoarder.Name = "dgvBoarder";
             this.dgvBoarder.RowHeadersWidth = 51;
-            this.dgvBoarder.Size = new System.Drawing.Size(600, 274);
+            this.dgvBoarder.Size = new System.Drawing.Size(580, 274);
             this.dgvBoarder.TabIndex = 0;
             this.dgvBoarder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBoarder_CellContentClick);
             // 
@@ -282,34 +280,34 @@
             this.TenantNameColumn.HeaderText = "Name";
             this.TenantNameColumn.MinimumWidth = 6;
             this.TenantNameColumn.Name = "TenantNameColumn";
-            this.TenantNameColumn.Width = 125;
+            this.TenantNameColumn.Width = 127;
             // 
             // RoomNumberColumn
             // 
             this.RoomNumberColumn.HeaderText = "Room Number";
             this.RoomNumberColumn.MinimumWidth = 6;
             this.RoomNumberColumn.Name = "RoomNumberColumn";
-            this.RoomNumberColumn.Width = 125;
+            this.RoomNumberColumn.Width = 135;
             // 
             // PhoneNumberColumn
             // 
             this.PhoneNumberColumn.HeaderText = "Phone Number";
             this.PhoneNumberColumn.MinimumWidth = 6;
             this.PhoneNumberColumn.Name = "PhoneNumberColumn";
-            this.PhoneNumberColumn.Width = 125;
+            this.PhoneNumberColumn.Width = 140;
             // 
             // StartingDateColumn
             // 
             this.StartingDateColumn.HeaderText = "Rent Status";
             this.StartingDateColumn.MinimumWidth = 6;
             this.StartingDateColumn.Name = "StartingDateColumn";
-            this.StartingDateColumn.Width = 125;
+            this.StartingDateColumn.Width = 127;
             // 
             // Main_Menu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(753, 501);
+            this.ClientSize = new System.Drawing.Size(780, 501);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
