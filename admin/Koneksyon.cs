@@ -15,8 +15,19 @@ namespace Laundry___Dormitory.admin
         public SqlConnection getConnection()
         {
             // e change rani 
-            con = new SqlConnection("Data Source=LAPTOP-2GIQGPEP;Initial Catalog=DormDTB;Integrated Security=True;Encrypt=False");
+            con = new SqlConnection("");
             return con;
         }
     }
+    /**@author Darwin
+     Laptop: 
+    */
+
+    /**@author Gavin
+     Laptop: Data Source=LAPTOP-2GIQGPEP;Initial Catalog=DormDTB;Integrated Security=True;Encrypt=False
+    */
+
+    /**@author Marga
+     Laptop: 
+    */
 }
