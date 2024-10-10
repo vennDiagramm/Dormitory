@@ -51,7 +51,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(574, 54);
+            this.panel1.Size = new System.Drawing.Size(606, 54);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -60,7 +60,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(574, 54);
+            this.label1.Size = new System.Drawing.Size(606, 54);
             this.label1.TabIndex = 1;
             this.label1.Text = "Payment History";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,7 +101,7 @@
             this.dgv_PaymentHistory.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_PaymentHistory.Location = new System.Drawing.Point(12, 60);
             this.dgv_PaymentHistory.Name = "dgv_PaymentHistory";
-            this.dgv_PaymentHistory.Size = new System.Drawing.Size(541, 249);
+            this.dgv_PaymentHistory.Size = new System.Drawing.Size(581, 249);
             this.dgv_PaymentHistory.TabIndex = 1;
             // 
             // btn_PH_Back
@@ -112,7 +112,7 @@
             this.btn_PH_Back.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_PH_Back.Location = new System.Drawing.Point(12, 315);
             this.btn_PH_Back.Name = "btn_PH_Back";
-            this.btn_PH_Back.Size = new System.Drawing.Size(541, 64);
+            this.btn_PH_Back.Size = new System.Drawing.Size(581, 64);
             this.btn_PH_Back.TabIndex = 2;
             this.btn_PH_Back.Text = "Back";
             this.btn_PH_Back.UseVisualStyleBackColor = true;
@@ -132,11 +132,13 @@
             // 
             this.Column3.HeaderText = "Payment Amount";
             this.Column3.Name = "Column3";
+            this.Column3.Width = 120;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Payment Date";
             this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
             // 
             // Column5
             // 
@@ -147,7 +149,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(573, 391);
+            this.ClientSize = new System.Drawing.Size(605, 391);
             this.Controls.Add(this.btn_PH_Back);
             this.Controls.Add(this.dgv_PaymentHistory);
             this.Controls.Add(this.panel1);

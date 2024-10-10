@@ -150,7 +150,7 @@ namespace Laundry___Dormitory
                         if (!string.IsNullOrEmpty(txtAP_Electricity.Text) && !string.IsNullOrEmpty(txtAP_Water.Text) && !string.IsNullOrEmpty(txtAP_Room.Text))
                         {
                             //Calculation for total cost
-                            double totalCost = (electricityCost * 11) + monthlyWater;
+                            double totalCost = ((electricityCost * 11) + monthlyWater) + 3000;
                             string totalCoststr = totalCost.ToString("F2");
 
                             // Create the SQL query to update the utilities cost for the specified room number
