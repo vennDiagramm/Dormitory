@@ -57,9 +57,9 @@ namespace Laundry___Dormitory
                 con.Open();
 
                 // Validate if room and phone numbers are valid integers
-                if (int.TryParse(txtAddRoom.Text, out int roomNumber) && int.TryParse(txtAddPhone.Text, out int phoneNumber) )
+                if (int.TryParse(txtAddRoom.Text, out int roomNumber))//Changed by gavin
                 {
-                    if (roomNumber > 0 && phoneNumber > 0)
+                    if (roomNumber > 0 && txtAddPhone.Text != null)//change by gavin
                     {
                         // Ensure fields are not empty
                         if (!string.IsNullOrEmpty(txtAddRoom.Text) && !string.IsNullOrEmpty(txtAddTenant.Text) &&

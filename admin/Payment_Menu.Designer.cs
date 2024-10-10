@@ -46,7 +46,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.Changelbl = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ConfirmButton = new System.Windows.Forms.Button();
+            this.PaymentGridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PaymentGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,7 +93,7 @@
             this.btnAP_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAP_Back.Image = ((System.Drawing.Image)(resources.GetObject("btnAP_Back.Image")));
             this.btnAP_Back.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAP_Back.Location = new System.Drawing.Point(19, 449);
+            this.btnAP_Back.Location = new System.Drawing.Point(20, 510);
             this.btnAP_Back.Name = "btnAP_Back";
             this.btnAP_Back.Size = new System.Drawing.Size(118, 49);
             this.btnAP_Back.TabIndex = 23;
@@ -92,7 +108,7 @@
             this.btnAP_Transact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAP_Transact.Image = ((System.Drawing.Image)(resources.GetObject("btnAP_Transact.Image")));
             this.btnAP_Transact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAP_Transact.Location = new System.Drawing.Point(143, 449);
+            this.btnAP_Transact.Location = new System.Drawing.Point(144, 510);
             this.btnAP_Transact.Name = "btnAP_Transact";
             this.btnAP_Transact.Size = new System.Drawing.Size(234, 49);
             this.btnAP_Transact.TabIndex = 20;
@@ -103,14 +119,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(185, 351);
+            this.textBox1.Location = new System.Drawing.Point(182, 384);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(192, 30);
             this.textBox1.TabIndex = 22;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(185, 391);
+            this.textBox2.Location = new System.Drawing.Point(182, 424);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(192, 30);
             this.textBox2.TabIndex = 19;
@@ -118,16 +134,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 391);
+            this.label5.Location = new System.Drawing.Point(19, 424);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 25);
+            this.label5.Size = new System.Drawing.Size(120, 25);
             this.label5.TabIndex = 18;
-            this.label5.Text = "Electricity Cost";
+            this.label5.Text = "Monthly Pay";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 351);
+            this.label6.Location = new System.Drawing.Point(19, 384);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(137, 25);
             this.label6.TabIndex = 17;
@@ -139,12 +155,13 @@
             this.btnAP_AddUtilities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAP_AddUtilities.Image = ((System.Drawing.Image)(resources.GetObject("btnAP_AddUtilities.Image")));
             this.btnAP_AddUtilities.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAP_AddUtilities.Location = new System.Drawing.Point(23, 229);
+            this.btnAP_AddUtilities.Location = new System.Drawing.Point(20, 262);
             this.btnAP_AddUtilities.Name = "btnAP_AddUtilities";
             this.btnAP_AddUtilities.Size = new System.Drawing.Size(358, 49);
             this.btnAP_AddUtilities.TabIndex = 31;
             this.btnAP_AddUtilities.Text = "Add Utilities";
             this.btnAP_AddUtilities.UseVisualStyleBackColor = true;
+            this.btnAP_AddUtilities.Click += new System.EventHandler(this.btnAP_AddUtilities_Click);
             // 
             // txtAP_Water
             // 
@@ -207,18 +224,170 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 311);
+            this.label8.Location = new System.Drawing.Point(20, 344);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(423, 25);
             this.label8.TabIndex = 21;
             this.label8.Text = "--------------Tenant Payment Section--------------";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(20, 222);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(149, 25);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Total Payment: ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 473);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 25);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "Change:";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTotal.Location = new System.Drawing.Point(182, 222);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(0, 25);
+            this.lblTotal.TabIndex = 34;
+            // 
+            // Changelbl
+            // 
+            this.Changelbl.AutoSize = true;
+            this.Changelbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Changelbl.Location = new System.Drawing.Point(182, 473);
+            this.Changelbl.Name = "Changelbl";
+            this.Changelbl.Size = new System.Drawing.Size(0, 25);
+            this.Changelbl.TabIndex = 35;
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(834, 531);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 31);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Reset";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(472, 534);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(271, 25);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Reset Payment for this month:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(472, 481);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(268, 25);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Sort through Payment Status:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Unpaid",
+            "Paid",
+            "Overdue",
+            "Pending"});
+            this.comboBox1.Location = new System.Drawing.Point(746, 481);
+            this.comboBox1.MaxDropDownItems = 4;
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(105, 33);
+            this.comboBox1.TabIndex = 40;
+            this.comboBox1.Text = "Unpaid";
+            // 
+            // ConfirmButton
+            // 
+            this.ConfirmButton.Location = new System.Drawing.Point(857, 481);
+            this.ConfirmButton.Name = "ConfirmButton";
+            this.ConfirmButton.Size = new System.Drawing.Size(75, 33);
+            this.ConfirmButton.TabIndex = 41;
+            this.ConfirmButton.Text = "OK";
+            this.ConfirmButton.UseVisualStyleBackColor = true;
+            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
+            // 
+            // PaymentGridView
+            // 
+            this.PaymentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PaymentGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.PaymentGridView.Location = new System.Drawing.Point(449, 12);
+            this.PaymentGridView.Name = "PaymentGridView";
+            this.PaymentGridView.RowHeadersWidth = 51;
+            this.PaymentGridView.RowTemplate.Height = 24;
+            this.PaymentGridView.Size = new System.Drawing.Size(672, 349);
+            this.PaymentGridView.TabIndex = 42;
+            this.PaymentGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaymentGridView_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Room Number";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tenant Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Rent Status";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Monthly Bill";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Payment Status";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
             // Payment_Menu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(405, 510);
+            this.ClientSize = new System.Drawing.Size(1122, 588);
+            this.Controls.Add(this.PaymentGridView);
+            this.Controls.Add(this.ConfirmButton);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Changelbl);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnAP_AddUtilities);
             this.Controls.Add(this.txtAP_Water);
@@ -240,9 +409,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Payment_Menu";
             this.Text = "Payment_Menu";
+            this.Load += new System.EventHandler(this.Payment_Menu_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PaymentGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,5 +438,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label Changelbl;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button ConfirmButton;
+        private System.Windows.Forms.DataGridView PaymentGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

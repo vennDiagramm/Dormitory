@@ -14,7 +14,7 @@ namespace Laundry___Dormitory.admin
 
         public SqlConnection getConnection()
         {
-            con = new SqlConnection("Data Source=DLMG;Initial Catalog=DormDTB;Integrated Security=True;Encrypt=False");
+            con = new SqlConnection("Data Source=LAPTOP-2GIQGPEP;Initial Catalog=DormDTB;Integrated Security=True;Encrypt=False");
             return con;
         }
     }

@@ -193,7 +193,7 @@ namespace Laundry___Dormitory
             con = cn.getConnection();
             con.Open();
 
-            cmd = new SqlCommand("select * from DormTable", con);
+            cmd = new SqlCommand("select * from DormTable", con); //select RoomNumber, TenantName, PhoneNumber, RentStatus from DormTable
             reader = cmd.ExecuteReader();
             dgvBoarder.Rows.Clear();
 

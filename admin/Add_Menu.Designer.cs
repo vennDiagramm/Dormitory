@@ -33,15 +33,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtAddRoom = new System.Windows.Forms.TextBox();
             this.txtAddTenant = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtSD = new System.Windows.Forms.TextBox();
             this.btnAdd_Tenant = new System.Windows.Forms.Button();
             this.btnAT_Back = new System.Windows.Forms.Button();
             this.txtAddPhone = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtAddRoom = new System.Windows.Forms.NumericUpDown();
+            this.txtSD = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddRoom)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -89,13 +90,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Room Number";
             // 
-            // txtAddRoom
-            // 
-            this.txtAddRoom.Location = new System.Drawing.Point(159, 71);
-            this.txtAddRoom.Name = "txtAddRoom";
-            this.txtAddRoom.Size = new System.Drawing.Size(166, 30);
-            this.txtAddRoom.TabIndex = 3;
-            // 
             // txtAddTenant
             // 
             this.txtAddTenant.Location = new System.Drawing.Point(159, 105);
@@ -106,18 +100,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 171);
+            this.label4.Location = new System.Drawing.Point(12, 190);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "Rent Status";
-            // 
-            // txtSD
-            // 
-            this.txtSD.Location = new System.Drawing.Point(159, 171);
-            this.txtSD.Name = "txtSD";
-            this.txtSD.Size = new System.Drawing.Size(166, 30);
-            this.txtSD.TabIndex = 6;
             // 
             // btnAdd_Tenant
             // 
@@ -125,7 +112,7 @@
             this.btnAdd_Tenant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd_Tenant.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd_Tenant.Image")));
             this.btnAdd_Tenant.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAdd_Tenant.Location = new System.Drawing.Point(170, 217);
+            this.btnAdd_Tenant.Location = new System.Drawing.Point(171, 232);
             this.btnAdd_Tenant.Name = "btnAdd_Tenant";
             this.btnAdd_Tenant.Size = new System.Drawing.Size(155, 78);
             this.btnAdd_Tenant.TabIndex = 7;
@@ -140,7 +127,7 @@
             this.btnAT_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAT_Back.Image = ((System.Drawing.Image)(resources.GetObject("btnAT_Back.Image")));
             this.btnAT_Back.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAT_Back.Location = new System.Drawing.Point(16, 217);
+            this.btnAT_Back.Location = new System.Drawing.Point(17, 232);
             this.btnAT_Back.Name = "btnAT_Back";
             this.btnAT_Back.Size = new System.Drawing.Size(148, 78);
             this.btnAT_Back.TabIndex = 8;
@@ -151,7 +138,7 @@
             // 
             // txtAddPhone
             // 
-            this.txtAddPhone.Location = new System.Drawing.Point(159, 138);
+            this.txtAddPhone.Location = new System.Drawing.Point(159, 145);
             this.txtAddPhone.Name = "txtAddPhone";
             this.txtAddPhone.Size = new System.Drawing.Size(166, 30);
             this.txtAddPhone.TabIndex = 10;
@@ -159,26 +146,55 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 138);
+            this.label5.Location = new System.Drawing.Point(10, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 25);
             this.label5.TabIndex = 9;
             this.label5.Text = "Phone Number";
+            // 
+            // txtAddRoom
+            // 
+            this.txtAddRoom.Location = new System.Drawing.Point(159, 66);
+            this.txtAddRoom.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtAddRoom.Name = "txtAddRoom";
+            this.txtAddRoom.Size = new System.Drawing.Size(166, 30);
+            this.txtAddRoom.TabIndex = 11;
+            this.txtAddRoom.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // txtSD
+            // 
+            this.txtSD.FormattingEnabled = true;
+            this.txtSD.Items.AddRange(new object[] {
+            "Occupied",
+            "Available",
+            "Under Maintenance"});
+            this.txtSD.Location = new System.Drawing.Point(159, 187);
+            this.txtSD.Name = "txtSD";
+            this.txtSD.Size = new System.Drawing.Size(166, 33);
+            this.txtSD.TabIndex = 12;
             // 
             // frmAddBoarder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(346, 322);
+            this.ClientSize = new System.Drawing.Size(346, 330);
+            this.Controls.Add(this.txtSD);
+            this.Controls.Add(this.txtAddRoom);
             this.Controls.Add(this.txtAddPhone);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAT_Back);
             this.Controls.Add(this.btnAdd_Tenant);
-            this.Controls.Add(this.txtSD);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtAddTenant);
-            this.Controls.Add(this.txtAddRoom);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -195,6 +211,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddRoom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,13 +223,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtAddRoom;
         private System.Windows.Forms.TextBox txtAddTenant;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSD;
         private System.Windows.Forms.Button btnAdd_Tenant;
         private System.Windows.Forms.Button btnAT_Back;
         private System.Windows.Forms.TextBox txtAddPhone;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown txtAddRoom;
+        private System.Windows.Forms.ComboBox txtSD;
     }
 }

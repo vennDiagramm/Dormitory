@@ -57,6 +57,12 @@
     <Compile Include="admin\Edit_Tenant&amp;Room.Designer.cs">
       <DependentUpon>Edit_Tenant&amp;Room.cs</DependentUpon>
     </Compile>
+    <Compile Include="admin\Login_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\Login_Menu.Designer.cs">
+      <DependentUpon>Login_Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin\Koneksyon.cs" />
     <Compile Include="admin\Main_Menu.cs">
       <SubType>Form</SubType>
@@ -95,6 +101,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DormDTBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DormDTBDataSet1.cs">
+      <DependentUpon>DormDTBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DormDTBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DormDTBDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="admin\RemoveTenant.cs">
       <SubType>Form</SubType>
@@ -110,6 +124,9 @@
     </Compile>
     <EmbeddedResource Include="admin\Edit_Tenant&amp;Room.resx">
       <DependentUpon>Edit_Tenant&amp;Room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\Login_Menu.resx">
+      <DependentUpon>Login_Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="admin\Main_Menu.resx">
       <DependentUpon>Main_Menu.cs</DependentUpon>
@@ -131,6 +148,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="admin\RemoveTenant.resx">
       <DependentUpon>RemoveTenant.cs</DependentUpon>
@@ -160,6 +178,17 @@
     <None Include="DormDTBDataSet.xss">
       <DependentUpon>DormDTBDataSet.xsd</DependentUpon>
     </None>
+    <None Include="DormDTBDataSet1.xsc">
+      <DependentUpon>DormDTBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DormDTBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DormDTBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DormDTBDataSet1.xss">
+      <DependentUpon>DormDTBDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -172,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\Login_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\LoginBg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
