@@ -7,10 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using Laundry___Dormitory.admin;
-using System.Xml.Linq;
 
 namespace Laundry___Dormitory
 {
