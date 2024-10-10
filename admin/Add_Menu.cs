@@ -57,9 +57,9 @@ namespace Laundry___Dormitory
                 con.Open();
 
                 // Validate if room and phone numbers are valid integers
-                if (int.TryParse(txtAddRoom.Text, out int roomNumber))//Changed by gavin
+                if (int.TryParse(txtAddRoom.Text, out int roomNumber) )//Changed by gavin
                 {
-                    if (roomNumber > 0 && txtAddPhone.Text != null)//change by gavin
+                    if (roomNumber > 0 && txtAddPhone.TextLength == 11)//change by gavin
                     {
                         // Ensure fields are not empty
                         if (!string.IsNullOrEmpty(txtAddRoom.Text) && !string.IsNullOrEmpty(txtAddTenant.Text) &&
@@ -102,7 +102,7 @@ namespace Laundry___Dormitory
                         }
                     } else
                     {
-                        MessageBox.Show("Room Number and Phone Number must be greater than 0.");
+                        MessageBox.Show("Room Number must be greater than 0 and Phone Number must have 11 digits");
                     }                   
                 }
                 else

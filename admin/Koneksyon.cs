@@ -15,7 +15,7 @@ namespace Laundry___Dormitory.admin
         public SqlConnection getConnection()
         {
             // e change rani 
-            con = new SqlConnection("Data Source=LAPTOP-SPR4SQLD;Initial Catalog=DormDTB;Integrated Security=True;Encrypt=False");
+            con = new SqlConnection("Data Source=DLMG;Initial Catalog=DormDB;Integrated Security=True;Encrypt=False");
             return con;
         }
     }
