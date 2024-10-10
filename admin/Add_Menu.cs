@@ -82,8 +82,10 @@ namespace Laundry___Dormitory
                                 }
                             }
 
-                            // If no duplicate, proceed with the insert
-                            cmd = new SqlCommand("insert into DormTable values ('" + txtAddRoom.Text + "','" + txtAddTenant.Text + "','" + txtAddPhone.Text + "','" + txtSD.Text + "')", con);
+                            // If no duplicate, proceed with the insert || gi specify nko para insert into this table lang
+                            cmd = new SqlCommand("insert into DormTable (RoomNumber, TenantName, PhoneNumber, RentStatus) values ('" 
+                                + txtAddRoom.Text + "','" + txtAddTenant.Text + "','" + txtAddPhone.Text + "','" 
+                                + txtSD.Text  + "')", con);
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Tenant Added!");

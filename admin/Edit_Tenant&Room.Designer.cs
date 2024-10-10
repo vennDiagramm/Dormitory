@@ -55,20 +55,23 @@
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(117, 8);
+            this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(318, 39);
+            this.label5.Size = new System.Drawing.Size(487, 51);
             this.label5.TabIndex = 0;
             this.label5.Text = "Edit Tenant/Room";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
+            this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(20, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 25);
+            this.label1.Size = new System.Drawing.Size(105, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tenant Name";
             // 
@@ -77,7 +80,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 171);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 25);
+            this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Phone Number";
             // 
@@ -86,7 +89,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(18, 211);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 25);
+            this.label3.Size = new System.Drawing.Size(113, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Status of Rent";
             // 
@@ -95,7 +98,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(20, 85);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 25);
+            this.label4.Size = new System.Drawing.Size(112, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "Room Number";
             // 
@@ -103,28 +106,28 @@
             // 
             this.txtET_TenantName.Location = new System.Drawing.Point(193, 127);
             this.txtET_TenantName.Name = "txtET_TenantName";
-            this.txtET_TenantName.Size = new System.Drawing.Size(262, 30);
+            this.txtET_TenantName.Size = new System.Drawing.Size(262, 26);
             this.txtET_TenantName.TabIndex = 5;
             // 
             // txtET_RentStatus
             // 
             this.txtET_RentStatus.Location = new System.Drawing.Point(193, 211);
             this.txtET_RentStatus.Name = "txtET_RentStatus";
-            this.txtET_RentStatus.Size = new System.Drawing.Size(262, 30);
+            this.txtET_RentStatus.Size = new System.Drawing.Size(262, 26);
             this.txtET_RentStatus.TabIndex = 7;
             // 
             // txtET_PhoneNum
             // 
             this.txtET_PhoneNum.Location = new System.Drawing.Point(193, 168);
             this.txtET_PhoneNum.Name = "txtET_PhoneNum";
-            this.txtET_PhoneNum.Size = new System.Drawing.Size(262, 30);
+            this.txtET_PhoneNum.Size = new System.Drawing.Size(262, 26);
             this.txtET_PhoneNum.TabIndex = 8;
             // 
             // txtET_RoomNumber
             // 
             this.txtET_RoomNumber.Location = new System.Drawing.Point(193, 82);
             this.txtET_RoomNumber.Name = "txtET_RoomNumber";
-            this.txtET_RoomNumber.Size = new System.Drawing.Size(262, 30);
+            this.txtET_RoomNumber.Size = new System.Drawing.Size(262, 26);
             this.txtET_RoomNumber.TabIndex = 9;
             // 
             // editButton
@@ -157,7 +160,7 @@
             // 
             // Edit_Tenant_Room
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(481, 338);
@@ -177,6 +180,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Edit_Tenant_Room";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit_Tenant_Room";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);

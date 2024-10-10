@@ -109,6 +109,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DormDTBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DormDTBDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DormDTBDataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DormDTBDataSet31.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DormDTBDataSet31.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="admin\RemoveTenant.cs">
       <SubType>Form</SubType>
@@ -188,6 +198,28 @@
     </None>
     <None Include="DormDTBDataSet1.xss">
       <DependentUpon>DormDTBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DormDTBDataSet21.xsc">
+      <DependentUpon>DormDTBDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="DormDTBDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DormDTBDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DormDTBDataSet21.xss">
+      <DependentUpon>DormDTBDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="DormDTBDataSet31.xsc">
+      <DependentUpon>DormDTBDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="DormDTBDataSet31.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DormDTBDataSet31.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DormDTBDataSet31.xss">
+      <DependentUpon>DormDTBDataSet31.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
