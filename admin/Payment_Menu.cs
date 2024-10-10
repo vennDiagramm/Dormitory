@@ -89,7 +89,10 @@ namespace Laundry___Dormitory
                                         cmd.ExecuteNonQuery();
 
                                         // Diri e tawag ang method para ma butang sa isa ka table
-                                        InsertPayment(roomNumber, (decimal)monthlyBill, DateTime.Now, "Paid");
+                                        DateTime currentDate = DateTime.Now;
+                                        string dateString = currentDate.ToString();
+                                        string yearMonthDay = dateString.Substring(0, 10);
+                                        InsertPayment(roomNumber, (decimal)monthlyBill, yearMonthDay, "Paid");
 
                                         // Clearing fields
                                         Changelbl.Text = remainingAmountStr;
@@ -154,7 +157,7 @@ namespace Laundry___Dormitory
                             string totalCoststr = totalCost.ToString("F2");
 
                             // Create the SQL query to update the utilities cost for the specified room number
-                            string query = "UPDATE DormTable SET ElectricityCost = @ElectricityCost, MonthlyWater = @MonthlyWater, MonthlyBill = @MonthlyBill WHERE RoomNumber = @RoomNumber";
+                            string query = "UPDATE DormTable SET ElectricityCost = @ElectricityCost, MonthlyWater = @MonthlyWater, MonthlyBill = @MonthlyBill, PaymentStatus = @PaymentStatus WHERE RoomNumber = @RoomNumber";
 
                             // Initialize the SqlCommand with the query and the connection
                             cmd = new SqlCommand(query, con);
@@ -164,6 +167,7 @@ namespace Laundry___Dormitory
                             cmd.Parameters.AddWithValue("@MonthlyWater", monthlyWater);
                             cmd.Parameters.AddWithValue("@MonthlyBill", totalCost);
                             cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                            cmd.Parameters.AddWithValue("@PaymentStatus","Unpaid");
 
                             // Execute the update query
                             int rowsAffected = cmd.ExecuteNonQuery();
@@ -276,18 +280,6 @@ namespace Laundry___Dormitory
                         PaymentGridView.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString());
                     }
                     break;
-
-                case "Pending":
-                    cmd = new SqlCommand("select RoomNumber, TenantName, RentStatus, MonthlyBill, PaymentStatus from DormTable where RentStatus  = 'Occupied' and PaymentStatus = 'Pending'", con);
-                    reader = cmd.ExecuteReader();
-                    PaymentGridView.Rows.Clear();
-
-                    while (reader.Read())
-                    {
-                        PaymentGridView.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString());
-                    }
-
-                    break;
             }
             cmd.Dispose();
             reader.Close();
@@ -319,7 +311,8 @@ namespace Laundry___Dormitory
         }
 
         // for the date and stuff
-        private void InsertPayment(int roomNumber, decimal paymentAmount, DateTime paymentDate, string paymentStatus)
+
+        private void InsertPayment(int roomNumber, decimal paymentAmount, string paymentDate, string paymentStatus)
         {
                 try
                 {
