@@ -63,9 +63,39 @@ namespace Laundry___Dormitory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exIcon {
+            get {
+                object obj = ResourceManager.GetObject("exIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gmd_logo {
+            get {
+                object obj = ResourceManager.GetObject("gmd logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Login_Icon {
             get {
                 object obj = ResourceManager.GetObject("Login_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Login_Icon_Small {
+            get {
+                object obj = ResourceManager.GetObject("Login_Icon_Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

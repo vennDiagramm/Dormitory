@@ -291,7 +291,7 @@ namespace Laundry___Dormitory
             con = cn.getConnection();
             con.Open();
 
-            cmd = new SqlCommand("update DormTable set PaymentStatus = 'Unpaid'", con);
+            cmd = new SqlCommand("update DormTable set PaymentStatus = 'Unpaid', MonthlyPayment = 0.00 ", con);
             reader = cmd.ExecuteReader();
             PaymentGridView.Rows.Clear();
 
