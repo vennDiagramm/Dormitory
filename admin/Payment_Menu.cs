@@ -71,6 +71,9 @@ namespace Laundry___Dormitory
                                     if (monthlyBill > totalCost)
                                     {
                                         MessageBox.Show("Insufficient Amount!");
+                                    } else if (monthlyBill == 0)
+                                    {
+                                        MessageBox.Show("Lacking information! Calculate first the utilities to get the needed monthly bill!");
                                     }
                                     else
                                     {
@@ -91,7 +94,8 @@ namespace Laundry___Dormitory
                                         // Diri e tawag ang method para ma butang sa isa ka table
                                         DateTime currentDate = DateTime.Now;
                                         string dateString = currentDate.ToString();
-                                        string yearMonthDay = dateString.Substring(0, 10);
+                                        //string yearMonthDay = dateString.Substring(0, 10);
+                                        string yearMonthDay = currentDate.ToString("yyyy-MM-dd HH:mm:ss");
                                         InsertPayment(roomNumber, (decimal)monthlyBill, yearMonthDay, "Paid");
 
                                         // Clearing fields
