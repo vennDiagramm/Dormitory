@@ -14,6 +14,7 @@ namespace Laundry___Dormitory
 {
     public partial class CustomerMenu : Form
     {
+        
         Koneksyon cn = new Koneksyon();
         SqlConnection con;
         SqlCommand cmd;
@@ -21,6 +22,21 @@ namespace Laundry___Dormitory
         public CustomerMenu()
         {
             InitializeComponent();
+        }
+        public Point mouseLocation;
+        private void mouseDown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        private void mouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePose = Control.MousePosition;
+                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePose;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -114,31 +130,52 @@ namespace Laundry___Dormitory
         {
             con = cn.getConnection();
             con.Open();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-            switch (StatusBox1.Text)
-            {
-                case "Available":
-                    cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Available'", con);
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                    break;
+            DataTable dt = new DataTable();
 
-                case "Occupied":
-                    cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Occupied'", con);
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                    break;
-                case "All":
-                    cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable", con);
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                    break;
+            try
+            {
+                SqlCommand cmd = null;
+
+                // Check the selected status and create the appropriate command
+                switch (StatusBox1.Text)
+                {
+                    case "Available":
+                        cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Available'", con);
+                        break;
+
+                    case "Occupied":
+                        cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Occupied'", con);
+                        break;
+
+                    case "All":
+                        cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable", con);
+                        break;
+
+                    default:
+                        MessageBox.Show("Please select a valid status.");
+                        return; // Exit if no valid status is selected
+                }
+
+                // Fill the DataTable using the SqlDataAdapter
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                // Set the data source of the DataGridView
+                dataGridView1.DataSource = dt;
             }
-            dataGridView1.Dispose();
-            cmd.Dispose();
-            con.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            finally
+            {
+                if (con != null && con.State == ConnectionState.Open)
+                {
+                    con.Close(); // Ensure the connection is closed after the operation
+                }
+            }
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
