@@ -40,11 +40,7 @@ namespace Laundry___Dormitory
         // para sa exit
         private void button2_Click(object sender, EventArgs e)
         {
-            //Environment.Exit(0);
-            CustomerMenu customerMenu = new CustomerMenu();
-            this.Hide();
-            customerMenu.ShowDialog();
-            this.Close(); 
+            Environment.Exit(0);
         }
 
         // para sa add window
