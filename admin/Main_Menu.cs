@@ -253,5 +253,15 @@ namespace Laundry___Dormitory
             reader.Close();
             con.Close();
         }
+
+        private void Main_Menu_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timeTracker.Text = DateTime.Now.ToLongDateString();
+        }       
     }
 }

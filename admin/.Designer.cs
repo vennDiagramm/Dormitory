@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,6 +50,8 @@
             this.RoomNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeTracker = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -58,6 +61,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.timeTracker);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.btnRemove);
             this.panel1.Controls.Add(this.btnExit);
@@ -303,6 +307,21 @@
             this.StartingDateColumn.Name = "StartingDateColumn";
             this.StartingDateColumn.Width = 127;
             // 
+            // timeTracker
+            // 
+            this.timeTracker.AutoSize = true;
+            this.timeTracker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeTracker.Location = new System.Drawing.Point(12, 467);
+            this.timeTracker.Name = "timeTracker";
+            this.timeTracker.Size = new System.Drawing.Size(56, 25);
+            this.timeTracker.TabIndex = 5;
+            this.timeTracker.Text = "Time";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Main_Menu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -317,9 +336,11 @@
             this.Name = "Main_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dormitory Manager";
+            this.Load += new System.EventHandler(this.Main_Menu_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -346,6 +367,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartingDateColumn;
+        private System.Windows.Forms.Label timeTracker;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -90,6 +90,12 @@
       <DependentUpon>Payment_Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="admin\Program.cs" />
+    <Compile Include="admin\ucDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="admin\ucDays.Designer.cs">
+      <DependentUpon>ucDays.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin\View_Rooms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,11 @@
     </Compile>
     <Compile Include="costumer\CustomerMenu.Designer.cs">
       <DependentUpon>CustomerMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DormDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DormDBDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="DormDTBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -162,6 +173,9 @@
     <EmbeddedResource Include="admin\Payment_Menu.resx">
       <DependentUpon>Payment_Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="admin\ucDays.resx">
+      <DependentUpon>ucDays.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admin\View_Rooms.resx">
       <DependentUpon>View_Rooms.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +211,17 @@
     </None>
     <None Include="AddMenuDTBDataSet.xss">
       <DependentUpon>AddMenuDTBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DormDBDataSet1.xsc">
+      <DependentUpon>DormDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DormDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DormDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DormDBDataSet1.xss">
+      <DependentUpon>DormDBDataSet1.xsd</DependentUpon>
     </None>
     <None Include="DormDTBDataSet.xsc">
       <DependentUpon>DormDTBDataSet.xsd</DependentUpon>
