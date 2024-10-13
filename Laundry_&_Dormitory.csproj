@@ -136,6 +136,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DormDTBDataSet31.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DormDTBDataSet41.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DormDTBDataSet41.xsd</DependentUpon>
+    </Compile>
     <Compile Include="landingPage\LandingPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +271,17 @@
     </None>
     <None Include="DormDTBDataSet31.xss">
       <DependentUpon>DormDTBDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="DormDTBDataSet41.xsc">
+      <DependentUpon>DormDTBDataSet41.xsd</DependentUpon>
+    </None>
+    <None Include="DormDTBDataSet41.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DormDTBDataSet41.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DormDTBDataSet41.xss">
+      <DependentUpon>DormDTBDataSet41.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

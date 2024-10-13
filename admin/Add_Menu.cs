@@ -87,9 +87,13 @@ namespace Laundry___Dormitory
                                 + txtSD.Text  + "')", con);
                             cmd.ExecuteNonQuery();
 
-                            MessageBox.Show("Tenant Added!");
+                            int counter = int.Parse(txtAddRoom.Text); // para sa text sa room number
 
-                            txtAddRoom.Text = "";
+                            MessageBox.Show("Tenant Added!");
+                            counter++; // para diritso na siya
+
+                            
+                            txtAddRoom.Text = counter.ToString();
                             txtAddTenant.Text = "";
                             txtAddPhone.Text = "";
                             txtSD.Text = "";
