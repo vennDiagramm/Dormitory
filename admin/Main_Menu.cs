@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using Laundry___Dormitory.admin;
+using Laundry___Dormitory.openWindow;
 
 namespace Laundry___Dormitory
 {
@@ -40,7 +41,10 @@ namespace Laundry___Dormitory
         // para sa exit
         private void button2_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            LandingPage landingPage = new LandingPage();
+            this.Hide();
+            landingPage.ShowDialog();
+            this.Close();
         }
 
         // para sa add window
@@ -258,6 +262,12 @@ namespace Laundry___Dormitory
         private void timer1_Tick(object sender, EventArgs e)
         {
             timeTracker.Text = DateTime.Now.ToLongDateString();
-        }       
+        }
+
+        // EXIT BUTTOONNN
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

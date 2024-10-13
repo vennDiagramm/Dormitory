@@ -1,4 +1,5 @@
 ﻿using Laundry___Dormitory.admin;
+using Laundry___Dormitory.openWindow;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,6 +74,21 @@ namespace Laundry___Dormitory
             {
                 loginbtn_Click(this, new EventArgs());
             }
+        }
+
+        // EXIT the log in
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        // GO back to landing
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            LandingPage landingPage = new LandingPage();
+            this.Hide();
+            landingPage.ShowDialog();
+            this.Close();
         }
     }
 }

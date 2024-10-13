@@ -1,4 +1,5 @@
 ﻿using Laundry___Dormitory.admin;
+using Laundry___Dormitory.openWindow;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -134,6 +135,14 @@ namespace Laundry___Dormitory
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LandingPage landingPage = new LandingPage();
+            this.Hide();
+            landingPage.ShowDialog();
+            this.Close();
         }
     }
 }

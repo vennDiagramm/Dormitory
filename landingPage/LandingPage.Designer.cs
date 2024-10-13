@@ -33,14 +33,22 @@
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnExit);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(607, 44);
+            this.panel1.Size = new System.Drawing.Size(606, 51);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
             // btnAdmin
             // 
@@ -71,6 +79,7 @@
             this.btnCustomer.Text = "Customer";
             this.btnCustomer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCustomer.UseVisualStyleBackColor = true;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // label1
             // 
@@ -81,6 +90,30 @@
             this.label1.Size = new System.Drawing.Size(190, 33);
             this.label1.TabIndex = 3;
             this.label1.Text = "Who is using?";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = global::Laundry___Dormitory.Properties.Resources.exIcon;
+            this.btnExit.Location = new System.Drawing.Point(531, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 51);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Calligraphy", 24F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(106, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(405, 41);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "M-Family Dormitory";
             // 
             // LandingPage
             // 
@@ -97,6 +130,10 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "LandingPage";
             this.Text = "OpeningWindow";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,5 +145,7 @@
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnExit;
     }
 }
