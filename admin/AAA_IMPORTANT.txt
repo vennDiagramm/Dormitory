@@ -1,0 +1,11 @@
+﻿**PATCH NOTES**
+
+// HI GUYS, diri nalang ta butang sa comments. Bcoz sometimes, makalimot ko'g ingon.
+
+Needed to patch: (As OF: 10/13/24)
+1.) We must allow null for names and phone number when adding a room
+	a. Para ma mark siya as available
+	b. Or:
+		-- Mag add ta daan ug number of rooms, mark them all as available
+
+2.) Haven't tried the available and renting sa customer becoz of the problem above

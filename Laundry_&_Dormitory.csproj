@@ -311,5 +311,8 @@
   <ItemGroup>
     <None Include="pics\gmd logo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\AAA_IMPORTANT.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

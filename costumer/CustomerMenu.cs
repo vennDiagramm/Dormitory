@@ -102,35 +102,54 @@ namespace Laundry___Dormitory
             con.Close();
         }
 
+        // Hello, gi change nako kasi mag error. Ga create din ng other column. Gi reader ra nko
+        // Dili na siya ga duplicate ug columns, ga change sab kos variable names kunti. Ang old code naa sa ubos
         private void Viewbtn_Click(object sender, EventArgs e)
         {
             con = cn.getConnection();
             con.Open();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-            switch (StatusBox1.Text)
+
+            switch (statusBox.Text)
             {
                 case "Available":
-                    cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Available'", con);
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
+                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RoomPrice FROM DormTable WHERE RentStatus = 'Available'", con);
+                    reader = cmd.ExecuteReader();
+                    dataGridView1.Rows.Clear();
+
+                    while (reader.Read())
+                    {
+                        dataGridView1.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString());
+                    }
                     break;
 
                 case "Occupied":
-                    cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Occupied'", con);
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
+                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RoomPrice FROM DormTable WHERE RentStatus = 'Occupied'", con);
+                    reader = cmd.ExecuteReader();
+                    dataGridView1.Rows.Clear();
+
+                    while (reader.Read())
+                    {
+                        dataGridView1.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString());
+                    }
                     break;
+
                 case "All":
-                    cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable", con);
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
+                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RoomPrice FROM DormTable", con);
+                    reader = cmd.ExecuteReader();
+                    dataGridView1.Rows.Clear();
+
+                    while (reader.Read())
+                    {
+                        dataGridView1.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString());
+                    }
                     break;
             }
-            dataGridView1.Dispose();
+
             cmd.Dispose();
+            reader.Close();
             con.Close();
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -146,3 +165,46 @@ namespace Laundry___Dormitory
         }
     }
 }
+
+
+// FIRST VERSION
+/**
+ private void Viewbtn_Click(object sender, EventArgs e)
+{
+    try
+    {
+        con = cn.getConnection();
+        con.Open();
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        switch (StatusBox1.Text)
+        {
+            case "Available":
+                cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Available'", con);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                break;
+
+            case "Occupied":
+                cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Occupied'", con);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                break;
+            case "All":
+                cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable", con);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                break;
+        }
+    } catch(Exception ex)
+    {
+        MessageBox.Show(ex.Message);
+    }
+    finally
+    {
+        dataGridView1.Dispose();
+        cmd.Dispose();
+        con.Close();
+    }
+}
+*/
