@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Laundry___Dormitory
+namespace Laundry___Dormitory.openWindow
 {
-    public partial class Customer_Menu : Form
+    public partial class OpeningWindow : Form
     {
-        public Customer_Menu()
+        public OpeningWindow()
         {
             InitializeComponent();
         }
