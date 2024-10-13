@@ -41,6 +41,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtAddRoom = new System.Windows.Forms.NumericUpDown();
             this.txtSD = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Pricetxt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddRoom)).BeginInit();
             this.SuspendLayout();
@@ -100,7 +102,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 190);
+            this.label4.Location = new System.Drawing.Point(12, 187);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 25);
             this.label4.TabIndex = 5;
@@ -112,7 +114,7 @@
             this.btnAdd_Tenant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd_Tenant.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd_Tenant.Image")));
             this.btnAdd_Tenant.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAdd_Tenant.Location = new System.Drawing.Point(171, 232);
+            this.btnAdd_Tenant.Location = new System.Drawing.Point(166, 282);
             this.btnAdd_Tenant.Name = "btnAdd_Tenant";
             this.btnAdd_Tenant.Size = new System.Drawing.Size(155, 78);
             this.btnAdd_Tenant.TabIndex = 7;
@@ -127,7 +129,7 @@
             this.btnAT_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAT_Back.Image = ((System.Drawing.Image)(resources.GetObject("btnAT_Back.Image")));
             this.btnAT_Back.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAT_Back.Location = new System.Drawing.Point(17, 232);
+            this.btnAT_Back.Location = new System.Drawing.Point(12, 282);
             this.btnAT_Back.Name = "btnAT_Back";
             this.btnAT_Back.Size = new System.Drawing.Size(148, 78);
             this.btnAT_Back.TabIndex = 8;
@@ -176,17 +178,35 @@
             "Occupied",
             "Available",
             "Under Maintenance"});
-            this.txtSD.Location = new System.Drawing.Point(159, 187);
+            this.txtSD.Location = new System.Drawing.Point(159, 184);
             this.txtSD.Name = "txtSD";
             this.txtSD.Size = new System.Drawing.Size(166, 33);
             this.txtSD.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 232);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 25);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Room Price";
+            // 
+            // Pricetxt
+            // 
+            this.Pricetxt.Location = new System.Drawing.Point(159, 227);
+            this.Pricetxt.Name = "Pricetxt";
+            this.Pricetxt.Size = new System.Drawing.Size(166, 30);
+            this.Pricetxt.TabIndex = 14;
             // 
             // frmAddBoarder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(346, 330);
+            this.ClientSize = new System.Drawing.Size(346, 381);
+            this.Controls.Add(this.Pricetxt);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtSD);
             this.Controls.Add(this.txtAddRoom);
             this.Controls.Add(this.txtAddPhone);
@@ -231,5 +251,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown txtAddRoom;
         private System.Windows.Forms.ComboBox txtSD;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox Pricetxt;
     }
 }

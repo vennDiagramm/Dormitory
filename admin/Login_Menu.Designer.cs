@@ -83,6 +83,8 @@
             this.Name = "Login_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

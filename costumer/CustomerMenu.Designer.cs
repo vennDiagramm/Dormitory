@@ -40,9 +40,9 @@
             this.RentBtn = new System.Windows.Forms.Button();
             this.Cancelbtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -176,18 +176,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 112);
             this.panel1.TabIndex = 10;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Image = global::Laundry___Dormitory.Properties.Resources.Login_Icon_Small;
-            this.button4.Location = new System.Drawing.Point(18, 420);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(70, 66);
-            this.button4.TabIndex = 8;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
             // pictureBox2
             // 
@@ -211,6 +201,18 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.Image = global::Laundry___Dormitory.Properties.Resources.Login_Icon_Small;
+            this.button4.Location = new System.Drawing.Point(18, 420);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(70, 66);
+            this.button4.TabIndex = 8;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // CustomerMenu
             // 

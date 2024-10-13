@@ -57,9 +57,9 @@ namespace Laundry___Dormitory
                 con.Open();
 
                 // Validate if room and phone numbers are valid integers
-                if (int.TryParse(txtAddRoom.Text, out int roomNumber) )//Changed by gavin
+                if (int.TryParse(txtAddRoom.Text, out int roomNumber) && double.TryParse(Pricetxt.Text, out double roomPrice) )//Changed by gavin 10/11
                 {
-                    if (roomNumber > 0 && txtAddPhone.TextLength == 11)//change by gavin
+                    if (roomNumber > 0 && txtAddPhone.TextLength == 11)//change by gavin 10/11
                     {
                         // Ensure fields are not empty
                         if (!string.IsNullOrEmpty(txtAddRoom.Text) && !string.IsNullOrEmpty(txtAddTenant.Text) &&
@@ -70,7 +70,7 @@ namespace Laundry___Dormitory
                             using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
                             {
                                 // Use parameters to prevent SQL injection
-                                checkCmd.Parameters.AddWithValue("@roomNumber", roomNumber);                               
+                                checkCmd.Parameters.AddWithValue("@roomNumber", roomNumber);
 
                                 int count = (int)checkCmd.ExecuteScalar(); // Execute the query and get the result
 
@@ -82,9 +82,9 @@ namespace Laundry___Dormitory
                             }
 
                             // If no duplicate, proceed with the insert || gi specify nko para insert into this table lang
-                            cmd = new SqlCommand("insert into DormTable (RoomNumber, TenantName, PhoneNumber, RentStatus) values ('" 
+                            cmd = new SqlCommand("insert into DormTable (RoomNumber, TenantName, PhoneNumber, RentStatus, RoomPrice) values ('" 
                                 + txtAddRoom.Text + "','" + txtAddTenant.Text + "','" + txtAddPhone.Text + "','" 
-                                + txtSD.Text  + "')", con);
+                                + txtSD.Text  + "','" + Pricetxt.Text+"')", con);//Added room price to table -- gavin 10/11
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Tenant Added!");
