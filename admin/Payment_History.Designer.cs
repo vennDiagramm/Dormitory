@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment_History));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,21 +82,21 @@
             // 
             // dgv_PaymentHistory
             // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.dgv_PaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.dgv_PaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_PaymentHistory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_PaymentHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(255)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_PaymentHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_PaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_PaymentHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -104,18 +104,20 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_PaymentHistory.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dgv_PaymentHistory.Location = new System.Drawing.Point(12, 60);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_PaymentHistory.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_PaymentHistory.EnableHeadersVisualStyles = false;
+            this.dgv_PaymentHistory.Location = new System.Drawing.Point(12, 83);
             this.dgv_PaymentHistory.Name = "dgv_PaymentHistory";
+            this.dgv_PaymentHistory.RowHeadersVisible = false;
             this.dgv_PaymentHistory.RowHeadersWidth = 51;
-            this.dgv_PaymentHistory.Size = new System.Drawing.Size(581, 249);
+            this.dgv_PaymentHistory.Size = new System.Drawing.Size(581, 447);
             this.dgv_PaymentHistory.TabIndex = 1;
             // 
             // Column1
@@ -155,7 +157,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(653, 90);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(620, 83);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(738, 525);
             this.flowLayoutPanel1.TabIndex = 3;
@@ -165,7 +167,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(660, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 25);
+            this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Sunday";
             // 
@@ -174,7 +176,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(758, 58);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 25);
+            this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Monday";
             // 
@@ -183,7 +185,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(851, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 25);
+            this.label4.Size = new System.Drawing.Size(69, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Tuesday";
             // 
@@ -192,7 +194,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(940, 58);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 25);
+            this.label5.Size = new System.Drawing.Size(93, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Wednesday";
             // 
@@ -201,7 +203,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(1044, 60);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 25);
+            this.label6.Size = new System.Drawing.Size(74, 20);
             this.label6.TabIndex = 8;
             this.label6.Text = "Thursday";
             // 
@@ -210,7 +212,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(1153, 60);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 25);
+            this.label7.Size = new System.Drawing.Size(52, 20);
             this.label7.TabIndex = 9;
             this.label7.Text = "Friday";
             // 
@@ -219,7 +221,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(1234, 60);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 25);
+            this.label8.Size = new System.Drawing.Size(73, 20);
             this.label8.TabIndex = 10;
             this.label8.Text = "Saturday";
             // 
@@ -228,7 +230,7 @@
             this.lbMonth.AutoSize = true;
             this.lbMonth.Location = new System.Drawing.Point(648, 17);
             this.lbMonth.Name = "lbMonth";
-            this.lbMonth.Size = new System.Drawing.Size(86, 25);
+            this.lbMonth.Size = new System.Drawing.Size(66, 20);
             this.lbMonth.TabIndex = 11;
             this.lbMonth.Text = "MONTH";
             // 
@@ -262,7 +264,7 @@
             this.btn_PH_Back.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_PH_Back.Location = new System.Drawing.Point(10, 554);
             this.btn_PH_Back.Name = "btn_PH_Back";
-            this.btn_PH_Back.Size = new System.Drawing.Size(176, 64);
+            this.btn_PH_Back.Size = new System.Drawing.Size(583, 64);
             this.btn_PH_Back.TabIndex = 2;
             this.btn_PH_Back.Text = "Back";
             this.btn_PH_Back.UseVisualStyleBackColor = true;
@@ -272,7 +274,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1420, 627);
+            this.ClientSize = new System.Drawing.Size(1370, 627);
             this.Controls.Add(this.btnNextClick);
             this.Controls.Add(this.btnPrevClick);
             this.Controls.Add(this.lbMonth);

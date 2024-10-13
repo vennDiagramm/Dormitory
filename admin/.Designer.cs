@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.timeTracker = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -46,12 +47,11 @@
             this.btnView = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvBoarder = new System.Windows.Forms.DataGridView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.TenantNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoomNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeTracker = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,6 +74,16 @@
             this.panel1.TabIndex = 11;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
+            // 
+            // timeTracker
+            // 
+            this.timeTracker.AutoSize = true;
+            this.timeTracker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeTracker.Location = new System.Drawing.Point(12, 467);
+            this.timeTracker.Name = "timeTracker";
+            this.timeTracker.Size = new System.Drawing.Size(43, 20);
+            this.timeTracker.TabIndex = 5;
+            this.timeTracker.Text = "Time";
             // 
             // btnSearch
             // 
@@ -190,7 +200,7 @@
             this.btnPaymentInfo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPaymentInfo.Location = new System.Drawing.Point(271, 3);
             this.btnPaymentInfo.Name = "btnPaymentInfo";
-            this.btnPaymentInfo.Size = new System.Drawing.Size(298, 79);
+            this.btnPaymentInfo.Size = new System.Drawing.Size(306, 91);
             this.btnPaymentInfo.TabIndex = 7;
             this.btnPaymentInfo.Text = "Add Payment Info";
             this.btnPaymentInfo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -205,9 +215,9 @@
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEdit.Location = new System.Drawing.Point(-32, 100);
+            this.btnEdit.Location = new System.Drawing.Point(0, 100);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(600, 79);
+            this.btnEdit.Size = new System.Drawing.Size(577, 79);
             this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit Tenant/Room";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -222,9 +232,9 @@
             this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnView.Image = ((System.Drawing.Image)(resources.GetObject("btnView.Image")));
             this.btnView.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnView.Location = new System.Drawing.Point(-29, 9);
+            this.btnView.Location = new System.Drawing.Point(-2, 3);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(296, 79);
+            this.btnView.Size = new System.Drawing.Size(267, 91);
             this.btnView.TabIndex = 5;
             this.btnView.Text = "View Rooms";
             this.btnView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -236,7 +246,7 @@
             this.panel4.Controls.Add(this.dgvBoarder);
             this.panel4.Location = new System.Drawing.Point(200, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(580, 274);
+            this.panel4.Size = new System.Drawing.Size(580, 316);
             this.panel4.TabIndex = 13;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
@@ -244,14 +254,15 @@
             // dgvBoarder
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.dgvBoarder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBoarder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(255)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
@@ -272,12 +283,19 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBoarder.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBoarder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBoarder.EnableHeadersVisualStyles = false;
             this.dgvBoarder.Location = new System.Drawing.Point(0, 0);
             this.dgvBoarder.Name = "dgvBoarder";
+            this.dgvBoarder.RowHeadersVisible = false;
             this.dgvBoarder.RowHeadersWidth = 51;
-            this.dgvBoarder.Size = new System.Drawing.Size(580, 274);
+            this.dgvBoarder.Size = new System.Drawing.Size(580, 316);
             this.dgvBoarder.TabIndex = 0;
             this.dgvBoarder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBoarder_CellContentClick);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // TenantNameColumn
             // 
@@ -291,14 +309,14 @@
             this.RoomNumberColumn.HeaderText = "Room Number";
             this.RoomNumberColumn.MinimumWidth = 6;
             this.RoomNumberColumn.Name = "RoomNumberColumn";
-            this.RoomNumberColumn.Width = 135;
+            this.RoomNumberColumn.Width = 155;
             // 
             // PhoneNumberColumn
             // 
             this.PhoneNumberColumn.HeaderText = "Phone Number";
             this.PhoneNumberColumn.MinimumWidth = 6;
             this.PhoneNumberColumn.Name = "PhoneNumberColumn";
-            this.PhoneNumberColumn.Width = 140;
+            this.PhoneNumberColumn.Width = 170;
             // 
             // StartingDateColumn
             // 
@@ -306,21 +324,6 @@
             this.StartingDateColumn.MinimumWidth = 6;
             this.StartingDateColumn.Name = "StartingDateColumn";
             this.StartingDateColumn.Width = 127;
-            // 
-            // timeTracker
-            // 
-            this.timeTracker.AutoSize = true;
-            this.timeTracker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeTracker.Location = new System.Drawing.Point(12, 467);
-            this.timeTracker.Name = "timeTracker";
-            this.timeTracker.Size = new System.Drawing.Size(56, 25);
-            this.timeTracker.TabIndex = 5;
-            this.timeTracker.Text = "Time";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main_Menu
             // 
@@ -363,12 +366,12 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnPaymentInfo;
+        private System.Windows.Forms.Label timeTracker;
+        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenantNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartingDateColumn;
-        private System.Windows.Forms.Label timeTracker;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 

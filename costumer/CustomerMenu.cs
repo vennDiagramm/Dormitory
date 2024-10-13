@@ -23,15 +23,6 @@ namespace Laundry___Dormitory
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            // If the password is correct, open the Main_Menu and hide the login form
-            Login_Menu loginMenu = new Login_Menu();
-            this.Hide();
-            loginMenu.ShowDialog();
-            this.Close();  // Close the login form once the Main Menu is closed
-        }
-
         private void Cancelbtn_Click(object sender, EventArgs e)
         {
             con = cn.getConnection();

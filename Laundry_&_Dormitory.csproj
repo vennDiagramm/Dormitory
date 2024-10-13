@@ -136,11 +136,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DormDTBDataSet31.xsd</DependentUpon>
     </Compile>
-    <Compile Include="openWindow\OpeningWindow.cs">
+    <Compile Include="landingPage\LandingPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="openWindow\OpeningWindow.Designer.cs">
-      <DependentUpon>OpeningWindow.cs</DependentUpon>
+    <Compile Include="landingPage\LandingPage.Designer.cs">
+      <DependentUpon>LandingPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="admin\RemoveTenant.cs">
@@ -182,8 +182,8 @@
     <EmbeddedResource Include="costumer\CustomerMenu.resx">
       <DependentUpon>CustomerMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="openWindow\OpeningWindow.resx">
-      <DependentUpon>OpeningWindow.cs</DependentUpon>
+    <EmbeddedResource Include="landingPage\LandingPage.resx">
+      <DependentUpon>LandingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
