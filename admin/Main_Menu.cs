@@ -269,5 +269,40 @@ namespace Laundry___Dormitory
         {
             Environment.Exit(0);
         }
+
+        private void btnAprov_Click(object sender, EventArgs e)
+        {
+            // To create new floating window
+            Form formBackground = new Form();
+            try
+            {
+                using (Approval_Window uu = new Approval_Window())
+                {
+                    formBackground.StartPosition = FormStartPosition.Manual;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = .50d;
+                    formBackground.BackColor = Color.Black;
+                    formBackground.WindowState = FormWindowState.Minimized;
+                    formBackground.TopMost = true;
+                    formBackground.Location = this.Location;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dgvBoarder.Rows.Clear();
+                formBackground.Dispose();
+            }
+        }
     }
 }

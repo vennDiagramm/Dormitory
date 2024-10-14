@@ -45,16 +45,16 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.dgvBoarder = new System.Windows.Forms.DataGridView();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
             this.RoomNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenantNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnAprov = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBoarder)).BeginInit();
@@ -275,6 +275,34 @@
             this.dgvBoarder.TabIndex = 0;
             this.dgvBoarder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBoarder_CellContentClick);
             // 
+            // RoomNumberColumn
+            // 
+            this.RoomNumberColumn.HeaderText = "Room Number";
+            this.RoomNumberColumn.MinimumWidth = 6;
+            this.RoomNumberColumn.Name = "RoomNumberColumn";
+            this.RoomNumberColumn.Width = 155;
+            // 
+            // TenantNameColumn
+            // 
+            this.TenantNameColumn.HeaderText = "Name";
+            this.TenantNameColumn.MinimumWidth = 6;
+            this.TenantNameColumn.Name = "TenantNameColumn";
+            this.TenantNameColumn.Width = 127;
+            // 
+            // PhoneNumberColumn
+            // 
+            this.PhoneNumberColumn.HeaderText = "Phone Number";
+            this.PhoneNumberColumn.MinimumWidth = 6;
+            this.PhoneNumberColumn.Name = "PhoneNumberColumn";
+            this.PhoneNumberColumn.Width = 170;
+            // 
+            // StartingDateColumn
+            // 
+            this.StartingDateColumn.HeaderText = "Rent Status";
+            this.StartingDateColumn.MinimumWidth = 6;
+            this.StartingDateColumn.Name = "StartingDateColumn";
+            this.StartingDateColumn.Width = 127;
+            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -293,6 +321,24 @@
             this.panel2.TabIndex = 12;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
+            // 
+            // btnAprov
+            // 
+            this.btnAprov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAprov.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAprov.FlatAppearance.BorderSize = 0;
+            this.btnAprov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAprov.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAprov.Image = ((System.Drawing.Image)(resources.GetObject("btnAprov.Image")));
+            this.btnAprov.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAprov.Location = new System.Drawing.Point(298, 101);
+            this.btnAprov.Name = "btnAprov";
+            this.btnAprov.Size = new System.Drawing.Size(282, 84);
+            this.btnAprov.TabIndex = 8;
+            this.btnAprov.Text = "Approve Tenants";
+            this.btnAprov.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAprov.UseVisualStyleBackColor = true;
+            this.btnAprov.Click += new System.EventHandler(this.btnAprov_Click);
             // 
             // panel4
             // 
@@ -328,51 +374,6 @@
             this.btnExit.TabIndex = 1;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // RoomNumberColumn
-            // 
-            this.RoomNumberColumn.HeaderText = "Room Number";
-            this.RoomNumberColumn.MinimumWidth = 6;
-            this.RoomNumberColumn.Name = "RoomNumberColumn";
-            this.RoomNumberColumn.Width = 155;
-            // 
-            // TenantNameColumn
-            // 
-            this.TenantNameColumn.HeaderText = "Name";
-            this.TenantNameColumn.MinimumWidth = 6;
-            this.TenantNameColumn.Name = "TenantNameColumn";
-            this.TenantNameColumn.Width = 127;
-            // 
-            // PhoneNumberColumn
-            // 
-            this.PhoneNumberColumn.HeaderText = "Phone Number";
-            this.PhoneNumberColumn.MinimumWidth = 6;
-            this.PhoneNumberColumn.Name = "PhoneNumberColumn";
-            this.PhoneNumberColumn.Width = 170;
-            // 
-            // StartingDateColumn
-            // 
-            this.StartingDateColumn.HeaderText = "Rent Status";
-            this.StartingDateColumn.MinimumWidth = 6;
-            this.StartingDateColumn.Name = "StartingDateColumn";
-            this.StartingDateColumn.Width = 127;
-            // 
-            // btnAprov
-            // 
-            this.btnAprov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAprov.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAprov.FlatAppearance.BorderSize = 0;
-            this.btnAprov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAprov.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAprov.Image = ((System.Drawing.Image)(resources.GetObject("btnAprov.Image")));
-            this.btnAprov.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAprov.Location = new System.Drawing.Point(298, 101);
-            this.btnAprov.Name = "btnAprov";
-            this.btnAprov.Size = new System.Drawing.Size(282, 84);
-            this.btnAprov.TabIndex = 8;
-            this.btnAprov.Text = "Approve Tenants";
-            this.btnAprov.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAprov.UseVisualStyleBackColor = true;
             // 
             // Main_Menu
             // 
