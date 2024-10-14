@@ -9,3 +9,13 @@ Needed to patch: (As OF: 10/13/24)
 		-- Mag add ta daan ug number of rooms, mark them all as available
 
 2.) Haven't tried the available and renting sa customer becoz of the problem above
+
+3.) Let the customer add their names, phone number before saying occupied. 
+	a.) make it into pending instead of occupied
+		a.) then admin will see it then approve
+	b.) try catch null room number || please select a room message
+
+4.) Main menu, work on the button
+	a.) approve tenants	
+			- Dapat mag choose ug kinsa ang dapat e approve
+			- New window, with new table

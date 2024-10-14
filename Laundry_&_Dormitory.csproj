@@ -89,6 +89,12 @@
     <Compile Include="admin\Payment_Menu.Designer.cs">
       <DependentUpon>Payment_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="admin\Approval_Window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\Approval_Window.Designer.cs">
+      <DependentUpon>Approval_Window.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin\Program.cs" />
     <Compile Include="admin\ucDays.cs">
       <SubType>UserControl</SubType>
@@ -160,6 +166,9 @@
     <Compile Include="admin\Search_Tenant.Designer.cs">
       <DependentUpon>Search_Tenant.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="admin\Approval_Window.resx">
+      <DependentUpon>Approval_Window.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admin\Edit_Tenant&amp;Room.resx">
       <DependentUpon>Edit_Tenant&amp;Room.cs</DependentUpon>
     </EmbeddedResource>

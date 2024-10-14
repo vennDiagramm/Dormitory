@@ -62,44 +62,50 @@ namespace Laundry___Dormitory
 
         private void RentBtn_Click(object sender, EventArgs e)
         {
-            con = cn.getConnection();
-            con.Open();
-
-            // Get the selected room number from the DataGridView
-            int roomNumber = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value);
-
-            // Query to check the current status of the room
-            cmd = new SqlCommand("SELECT Status FROM Rooms WHERE RoomNumber = @RoomNumber", con);
-
-            // Add parameter for the room number
-            cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
-
-            // Execute the query and get the current status
-            string currentStatus = cmd.ExecuteScalar()?.ToString();
-
-            if (currentStatus == "AVAILABLE")
+            try
             {
-                // Proceed to update the room status to "Occupied"
-                string updateStatusQuery = "UPDATE Rooms SET Status = 'Pending' WHERE RoomNumber = @RoomNumber";
-                using (SqlCommand updateCmd = new SqlCommand(updateStatusQuery, con))
+                con = cn.getConnection();
+                con.Open();
+
+                // Get the selected room number from the DataGridView
+                int roomNumber = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value);
+
+                // Query to check the current status of the room
+                cmd = new SqlCommand("SELECT RentStatus FROM DormTable WHERE RoomNumber = @RoomNumber", con);
+
+                // Add parameter for the room number
+                cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
+
+                // Execute the query and get the current status
+                string currentStatus = cmd.ExecuteScalar()?.ToString();
+
+                if (currentStatus == "Available")
                 {
-                    updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
-                    updateCmd.ExecuteNonQuery();
-                    MessageBox.Show("Room status updated to 'Occupied'.");
+                    // Proceed to update the room status to "Occupied"
+                    string updateStatusQuery = "UPDATE DormTable SET RentStatus = 'Pending' WHERE RoomNumber = @RoomNumber";
+                    using (SqlCommand updateCmd = new SqlCommand(updateStatusQuery, con))
+                    {
+                        updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                        updateCmd.ExecuteNonQuery();
+                        MessageBox.Show("Room status updated to 'Pending'.");
+                    }
+
                 }
-
+                else if (currentStatus == "Occupied")
+                {
+                    MessageBox.Show("Room is already occupied, please select another.");
+                }
+                else
+                {
+                    MessageBox.Show("Room is Under Maintenance, please select another.");
+                }
+                cmd.Dispose();
+                con.Close();
             }
-            else if (currentStatus == "Occupied")
+            catch (Exception ex)
             {
-                MessageBox.Show("Room is already occupied, please select another.");
+                MessageBox.Show("Please select a row in the table.");
             }
-            else
-            {
-                MessageBox.Show("Room is Under Maintenance, please select another.");
-            }
-
-            cmd.Dispose();
-            con.Close();
         }
 
         // Hello, gi change nako kasi mag error. Ga create din ng other column. Gi reader ra nko
