@@ -304,5 +304,48 @@ namespace Laundry___Dormitory
                 formBackground.Dispose();
             }
         }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            con = cn.getConnection();
+            con.Open();
+
+            // Remove the reader here, you don't need it for counting.
+            for (int RoomCounter = 1; RoomCounter <= 20; RoomCounter++)
+            {
+                string checkQuery = "SELECT COUNT(*) FROM DormTable WHERE RoomNumber = @roomNumber";
+                using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
+                {
+                    checkCmd.Parameters.AddWithValue("@roomNumber", RoomCounter);
+
+                    int count = (int)checkCmd.ExecuteScalar(); // This works without a reader
+
+                    if (count > 0) // If a duplicate exists
+                    {
+                        // Proceed to update if RoomNumber exists
+                        SqlCommand cmd = new SqlCommand("UPDATE DormTable SET TenantName = @TenantName, PhoneNumber = @PhoneNumber, RentStatus = @RentStatus WHERE RoomNumber = @RoomNumber", con);
+                        cmd.Parameters.AddWithValue("@TenantName", ""); // Use DBNull for null values
+                        cmd.Parameters.AddWithValue("@PhoneNumber", "00000000000");
+                        cmd.Parameters.AddWithValue("@RentStatus", "Available");
+                        cmd.Parameters.AddWithValue("@RoomNumber", RoomCounter);
+                        cmd.ExecuteNonQuery();                      
+                    }
+                    else
+                    {
+                        // Insert if RoomNumber does not exist
+                        cmd = new SqlCommand("insert into DormTable (RoomNumber, TenantName, PhoneNumber, RentStatus) values ('"
+                        + RoomCounter + "','" + "" + "','" + "00000000000" + "','"
+                        + "Available" + "')", con);
+                        cmd.ExecuteNonQuery();                       
+                    }                   
+                }
+            }
+
+            MessageBox.Show("Reset Successful!");
+
+            // Close the connection after all operations are done
+            con.Close();
+
+        }
     }
 }

@@ -57,57 +57,59 @@ namespace Laundry___Dormitory
                 con.Open();
 
                 // Validate if room and phone numbers are valid integers
-                if (int.TryParse(txtAddRoom.Text, out int roomNumber) )//Changed by gavin
+                if (int.TryParse(txtAddRoom.Text, out int roomNumber))
                 {
-                    if (roomNumber > 0 && txtAddPhone.TextLength == 11)//change by gavin
+                    if (roomNumber > 0 && roomNumber <= 20 && txtAddPhone.TextLength == 11)
                     {
                         // Ensure fields are not empty
                         if (!string.IsNullOrEmpty(txtAddRoom.Text) && !string.IsNullOrEmpty(txtAddTenant.Text) &&
-                            !string.IsNullOrEmpty(txtAddPhone.Text) && !string.IsNullOrEmpty(txtSD.Text))
+                            !string.IsNullOrEmpty(txtAddPhone.Text))
                         {
-                            // Check for duplicate Room Number and Tenant Name before inserting
-                            string checkQuery = "SELECT COUNT(*) FROM DormTable WHERE RoomNumber = @roomNumber";
+                            // Check if the room number exists
+                            string checkQuery = "SELECT TenantName FROM DormTable WHERE RoomNumber = @roomNumber";
                             using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
                             {
-                                // Use parameters to prevent SQL injection
-                                checkCmd.Parameters.AddWithValue("@roomNumber", roomNumber);                               
+                                checkCmd.Parameters.AddWithValue("@roomNumber", roomNumber);
 
-                                int count = (int)checkCmd.ExecuteScalar(); // Execute the query and get the result
+                                object tenantNameObj = checkCmd.ExecuteScalar();
 
-                                if (count > 0) // If a duplicate exists
+                                // Update if Room Number exists and TenantName is not empty
+                                if (tenantNameObj != null && tenantNameObj is string tenantName && string.IsNullOrWhiteSpace(tenantName))
                                 {
-                                    MessageBox.Show("This Room is already occupied. Please double check.");
-                                    return; // Stop further execution to prevent the insert
+                                    cmd = new SqlCommand("update DormTable set TenantName = '" + txtAddTenant.Text + "', PhoneNumber = '" + txtAddPhone.Text + "', RentStatus = '" + "Occupied" + "' where RoomNumber = '" + roomNumber + "'", con);
+                                    cmd.ExecuteNonQuery();
+                                    MessageBox.Show("Tenant updated successfully.");
+                                }
+                                // Insert new record if RoomNumber does not exist
+                                else if (tenantNameObj == null || tenantNameObj == DBNull.Value || string.IsNullOrWhiteSpace(tenantNameObj.ToString()))
+                                {
+                                    cmd = new SqlCommand("insert into DormTable (RoomNumber, TenantName, PhoneNumber, RentStatus) values ('"
+                                    + roomNumber + "','" + txtAddTenant.Text + "','" + txtAddPhone.Text + "','"
+                                    + "Occupied" + "')", con);
+                                    cmd.ExecuteNonQuery();
+                                    MessageBox.Show("Tenant added successfully.");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Cannot update. The room is already occupied!");
                                 }
                             }
 
-                            // If no duplicate, proceed with the insert || gi specify nko para insert into this table lang
-                            cmd = new SqlCommand("insert into DormTable (RoomNumber, TenantName, PhoneNumber, RentStatus) values ('" 
-                                + txtAddRoom.Text + "','" + txtAddTenant.Text + "','" + txtAddPhone.Text + "','" 
-                                + txtSD.Text  + "')", con);
-                            cmd.ExecuteNonQuery();
-
-                            int counter = int.Parse(txtAddRoom.Text); // para sa text sa room number
-
-                            MessageBox.Show("Tenant Added!");
-                            counter++; // para diritso na siya
-
-                            
+                            // Clear and increment for next input
+                            int counter = roomNumber + 1;
                             txtAddRoom.Text = counter.ToString();
                             txtAddTenant.Text = "";
-                            txtAddPhone.Text = "";
-                            txtSD.Text = "";
-
-                            cmd.Dispose();
+                            txtAddPhone.Text = "";                           
                         }
                         else
                         {
                             MessageBox.Show("All fields must be filled out.");
                         }
-                    } else
+                    }
+                    else
                     {
-                        MessageBox.Show("Room Number must be greater than 0 and Phone Number must have 11 digits");
-                    }                   
+                        MessageBox.Show("Room Number must be within the range of 1 and 20 and the Phone Number must have 11 digits.");
+                    }
                 }
                 else
                 {
@@ -121,12 +123,18 @@ namespace Laundry___Dormitory
             }
             finally
             {
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+
                 if (con != null && con.State == ConnectionState.Open)
                 {
                     con.Close(); // Ensure the connection is closed after operation
                 }
             }
         }
+
 
     }
 }

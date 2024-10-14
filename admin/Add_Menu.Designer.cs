@@ -34,13 +34,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAddTenant = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnAdd_Tenant = new System.Windows.Forms.Button();
             this.btnAT_Back = new System.Windows.Forms.Button();
             this.txtAddPhone = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAddRoom = new System.Windows.Forms.NumericUpDown();
-            this.txtSD = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddRoom)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +73,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 105);
+            this.label1.Location = new System.Drawing.Point(10, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 25);
             this.label1.TabIndex = 1;
@@ -92,19 +90,10 @@
             // 
             // txtAddTenant
             // 
-            this.txtAddTenant.Location = new System.Drawing.Point(159, 105);
+            this.txtAddTenant.Location = new System.Drawing.Point(159, 119);
             this.txtAddTenant.Name = "txtAddTenant";
             this.txtAddTenant.Size = new System.Drawing.Size(166, 30);
             this.txtAddTenant.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 190);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 25);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Rent Status";
             // 
             // btnAdd_Tenant
             // 
@@ -138,7 +127,7 @@
             // 
             // txtAddPhone
             // 
-            this.txtAddPhone.Location = new System.Drawing.Point(159, 145);
+            this.txtAddPhone.Location = new System.Drawing.Point(159, 172);
             this.txtAddPhone.Name = "txtAddPhone";
             this.txtAddPhone.Size = new System.Drawing.Size(166, 30);
             this.txtAddPhone.TabIndex = 10;
@@ -146,7 +135,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 148);
+            this.label5.Location = new System.Drawing.Point(10, 175);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 25);
             this.label5.TabIndex = 9;
@@ -155,6 +144,11 @@
             // txtAddRoom
             // 
             this.txtAddRoom.Location = new System.Drawing.Point(159, 66);
+            this.txtAddRoom.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             this.txtAddRoom.Minimum = new decimal(new int[] {
             1,
             0,
@@ -169,31 +163,17 @@
             0,
             0});
             // 
-            // txtSD
-            // 
-            this.txtSD.FormattingEnabled = true;
-            this.txtSD.Items.AddRange(new object[] {
-            "Occupied",
-            "Available",
-            "Under Maintenance"});
-            this.txtSD.Location = new System.Drawing.Point(159, 187);
-            this.txtSD.Name = "txtSD";
-            this.txtSD.Size = new System.Drawing.Size(166, 33);
-            this.txtSD.TabIndex = 12;
-            // 
             // frmAddBoarder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(346, 330);
-            this.Controls.Add(this.txtSD);
             this.Controls.Add(this.txtAddRoom);
             this.Controls.Add(this.txtAddPhone);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAT_Back);
             this.Controls.Add(this.btnAdd_Tenant);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtAddTenant);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -224,12 +204,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtAddTenant;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAdd_Tenant;
         private System.Windows.Forms.Button btnAT_Back;
         private System.Windows.Forms.TextBox txtAddPhone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown txtAddRoom;
-        private System.Windows.Forms.ComboBox txtSD;
     }
 }

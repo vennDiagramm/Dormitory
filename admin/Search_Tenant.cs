@@ -60,7 +60,6 @@ namespace Laundry___Dormitory
                     {
                         if (!string.IsNullOrEmpty(txtST_RoomNumber.Text))
                         {
-                            // Check if the combination of RoomNumber and TenantName exists in the database
                             cmd = new SqlCommand("SELECT * FROM DormTable WHERE RoomNumber = @RoomNumber", con);
                             cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
 
@@ -71,6 +70,13 @@ namespace Laundry___Dormitory
                                 // Read the data if the combination exists
                                 while (reader.Read())
                                 {
+                                    // Check if TenantName is empty
+                                    if (reader["TenantName"].ToString() == "")
+                                    {
+                                        MessageBox.Show("No tenant exists in the selected room.");
+                                        return; // Stop further execution
+                                    }
+
                                     result[0] = reader[0].ToString();
                                     result[1] = reader[1].ToString();
                                     result[2] = reader[2].ToString();
@@ -91,7 +97,7 @@ namespace Laundry___Dormitory
                         {
                             MessageBox.Show("Room Number must be filled.");
                         }
-                    } 
+                    }
                     else
                     {
                         MessageBox.Show("There is no such thing as a negative room number. Please double check.");
