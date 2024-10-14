@@ -16,5 +16,7 @@ namespace Laundry___Dormitory.admin
         {
             InitializeComponent();
         }
+
+        // dasjda
     }
 }
