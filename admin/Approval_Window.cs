@@ -33,5 +33,17 @@ namespace Laundry___Dormitory.admin
                 Location = mousePose;
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Form Main_Menu = new Main_Menu();
+            Main_Menu.Show(this);
+            Visible = false;
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

@@ -33,19 +33,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnApprove = new System.Windows.Forms.Button();
+            this.btnReject = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvBoarder = new System.Windows.Forms.DataGridView();
             this.RoomNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenantNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReject = new System.Windows.Forms.Button();
-            this.btnApprove = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -63,6 +63,17 @@
             this.panel1.Size = new System.Drawing.Size(705, 49);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(249, 38);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Approve Tenant";
+            // 
             // btn_Exit
             // 
             this.btn_Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -74,6 +85,7 @@
             this.btn_Exit.Size = new System.Drawing.Size(27, 25);
             this.btn_Exit.TabIndex = 1;
             this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // btnBack
             // 
@@ -88,6 +100,7 @@
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // panel2
             // 
@@ -100,6 +113,43 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(206, 277);
             this.panel2.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(193, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "paki butang sa time diri";
+            // 
+            // btnApprove
+            // 
+            this.btnApprove.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnApprove.FlatAppearance.BorderSize = 0;
+            this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApprove.Image = ((System.Drawing.Image)(resources.GetObject("btnApprove.Image")));
+            this.btnApprove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnApprove.Location = new System.Drawing.Point(0, 58);
+            this.btnApprove.Name = "btnApprove";
+            this.btnApprove.Size = new System.Drawing.Size(206, 72);
+            this.btnApprove.TabIndex = 4;
+            this.btnApprove.Text = "Approve";
+            this.btnApprove.UseVisualStyleBackColor = true;
+            // 
+            // btnReject
+            // 
+            this.btnReject.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnReject.FlatAppearance.BorderSize = 0;
+            this.btnReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReject.Image = ((System.Drawing.Image)(resources.GetObject("btnReject.Image")));
+            this.btnReject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReject.Location = new System.Drawing.Point(0, 130);
+            this.btnReject.Name = "btnReject";
+            this.btnReject.Size = new System.Drawing.Size(206, 69);
+            this.btnReject.TabIndex = 3;
+            this.btnReject.Text = "Deny";
+            this.btnReject.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -177,54 +227,6 @@
             this.StartingDateColumn.MinimumWidth = 6;
             this.StartingDateColumn.Name = "StartingDateColumn";
             this.StartingDateColumn.Width = 127;
-            // 
-            // btnReject
-            // 
-            this.btnReject.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnReject.FlatAppearance.BorderSize = 0;
-            this.btnReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReject.Image = ((System.Drawing.Image)(resources.GetObject("btnReject.Image")));
-            this.btnReject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReject.Location = new System.Drawing.Point(0, 130);
-            this.btnReject.Name = "btnReject";
-            this.btnReject.Size = new System.Drawing.Size(206, 69);
-            this.btnReject.TabIndex = 3;
-            this.btnReject.Text = "Deny";
-            this.btnReject.UseVisualStyleBackColor = true;
-            // 
-            // btnApprove
-            // 
-            this.btnApprove.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnApprove.FlatAppearance.BorderSize = 0;
-            this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApprove.Image = ((System.Drawing.Image)(resources.GetObject("btnApprove.Image")));
-            this.btnApprove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnApprove.Location = new System.Drawing.Point(0, 58);
-            this.btnApprove.Name = "btnApprove";
-            this.btnApprove.Size = new System.Drawing.Size(206, 72);
-            this.btnApprove.TabIndex = 4;
-            this.btnApprove.Text = "Approve";
-            this.btnApprove.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 38);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Approve Tenant";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 21);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "paki butang sa time diri";
             // 
             // Approval_Window
             // 
