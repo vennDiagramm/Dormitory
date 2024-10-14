@@ -52,7 +52,7 @@
             // 
             this.Passwordtxtbox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Passwordtxtbox.Location = new System.Drawing.Point(218, 229);
-            this.Passwordtxtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Passwordtxtbox.Margin = new System.Windows.Forms.Padding(2);
             this.Passwordtxtbox.Name = "Passwordtxtbox";
             this.Passwordtxtbox.Size = new System.Drawing.Size(154, 27);
             this.Passwordtxtbox.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             this.loginbtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginbtn.Location = new System.Drawing.Point(305, 269);
-            this.loginbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loginbtn.Margin = new System.Windows.Forms.Padding(2);
             this.loginbtn.Name = "loginbtn";
             this.loginbtn.Size = new System.Drawing.Size(67, 28);
             this.loginbtn.TabIndex = 3;
@@ -75,7 +75,7 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.LightCoral;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Image = global::Laundry___Dormitory.Properties.Resources.exIcon;
@@ -112,7 +112,7 @@
             this.Controls.Add(this.Passwordtxtbox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
