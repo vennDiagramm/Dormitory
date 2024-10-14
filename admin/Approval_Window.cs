@@ -135,6 +135,7 @@ namespace Laundry___Dormitory.admin
 
         private void Approval_Window_Load(object sender, EventArgs e)
         {
+            timer2.Start();
             con = cn.getConnection();
             con.Open();
 
@@ -150,7 +151,13 @@ namespace Laundry___Dormitory.admin
             cmd.Dispose();
             reader.Close();
             con.Close();
+          
 
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            label2.Text = DateTime.Now.ToLongDateString();
         }
     }
 }
