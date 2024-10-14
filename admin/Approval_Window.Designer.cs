@@ -62,6 +62,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(705, 49);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
             // label1
             // 
@@ -70,7 +72,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 38);
+            this.label1.Size = new System.Drawing.Size(316, 48);
             this.label1.TabIndex = 2;
             this.label1.Text = "Approve Tenant";
             // 
@@ -113,13 +115,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(206, 277);
             this.panel2.TabIndex = 3;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
+            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(5, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 21);
+            this.label2.Size = new System.Drawing.Size(237, 23);
             this.label2.TabIndex = 5;
             this.label2.Text = "paki butang sa time diri";
             // 
@@ -136,6 +140,7 @@
             this.btnApprove.TabIndex = 4;
             this.btnApprove.Text = "Approve";
             this.btnApprove.UseVisualStyleBackColor = true;
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
             // 
             // btnReject
             // 
@@ -150,15 +155,19 @@
             this.btnReject.TabIndex = 3;
             this.btnReject.Text = "Deny";
             this.btnReject.UseVisualStyleBackColor = true;
+            this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
             // 
             // panel3
             // 
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.Controls.Add(this.dgvBoarder);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(204, 49);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(501, 277);
             this.panel3.TabIndex = 4;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
+            this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             // 
             // dgvBoarder
             // 
@@ -195,7 +204,6 @@
             this.dgvBoarder.EnableHeadersVisualStyles = false;
             this.dgvBoarder.Location = new System.Drawing.Point(0, 0);
             this.dgvBoarder.Name = "dgvBoarder";
-            this.dgvBoarder.RowHeadersVisible = false;
             this.dgvBoarder.RowHeadersWidth = 51;
             this.dgvBoarder.Size = new System.Drawing.Size(501, 277);
             this.dgvBoarder.TabIndex = 1;
@@ -240,7 +248,9 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Approval_Window";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PendingWindow";
+            this.Load += new System.EventHandler(this.Approval_Window_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
