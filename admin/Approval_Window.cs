@@ -12,11 +12,26 @@ namespace Laundry___Dormitory.admin
 {
     public partial class Approval_Window : Form
     {
+        public Point mouseLocation;
         public Approval_Window()
         {
             InitializeComponent();
         }
 
-        // dasjda move
+        // Mouse moving
+        private void mouseDown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        private void mouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePose = Control.MousePosition;
+                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePose;
+            }
+        }
     }
 }
