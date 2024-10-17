@@ -31,13 +31,13 @@ namespace Laundry___Dormitory
 
             int roomNumber = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value);
 
-            cmd = new SqlCommand("SELECT Status FROM Rooms WHERE RoomNumber = @RoomNumber", con);
+            cmd = new SqlCommand("SELECT RentStatus FROM DormTable WHERE RoomNumber = @RoomNumber", con);
             cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
             string currentStatus = cmd.ExecuteScalar()?.ToString();
 
             if (currentStatus == "Occupied")
             {
-                string updateStatusQuery = "UPDATE Rooms SET Status = 'Under Maintenance' WHERE RoomNumber = @RoomNumber";
+                string updateStatusQuery = "UPDATE DormTable SET RentStatus = 'Available', TenantName = '', PhoneNumber = '' WHERE RoomNumber = @RoomNumber";
                 using (SqlCommand updateCmd = new SqlCommand(updateStatusQuery, con))
                 {
                     updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
@@ -48,13 +48,17 @@ namespace Laundry___Dormitory
             }
             else if (currentStatus == "Pending")
             {
-                string updateStatusQuery = "UPDATE Rooms SET Status = 'Available' WHERE RoomNumber = @RoomNumber";
+                string updateStatusQuery = "UPDATE Dormtable SET RentStatus = 'Available' WHERE RoomNumber = @RoomNumber";
                 using (SqlCommand updateCmd = new SqlCommand(updateStatusQuery, con))
                 {
                     updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
                     updateCmd.ExecuteNonQuery();
                     MessageBox.Show("Cancellation is complete, room is now available.");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Room is already available");
             }
             cmd.Dispose();
             con.Close();
@@ -81,14 +85,25 @@ namespace Laundry___Dormitory
 
                 if (currentStatus == "Available")
                 {
-                    // Proceed to update the room status to "Occupied"
-                    string updateStatusQuery = "UPDATE DormTable SET RentStatus = 'Pending' WHERE RoomNumber = @RoomNumber";
-                    using (SqlCommand updateCmd = new SqlCommand(updateStatusQuery, con))
+                    if (!string.IsNullOrEmpty(txtCustomerName.Text) && !string.IsNullOrEmpty(txtPhoneNumber.Text) && txtPhoneNumber.TextLength == 11)
                     {
-                        updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
-                        updateCmd.ExecuteNonQuery();
-                        MessageBox.Show("Room status updated to 'Pending'.");
+                        // Proceed to update the room status to "Occupied"
+                        string updateStatusQuery = "UPDATE DormTable SET RentStatus = 'Pending', TenantName = @name, PhoneNumber = @phone  WHERE RoomNumber = @RoomNumber";
+
+                        using (SqlCommand updateCmd = new SqlCommand(updateStatusQuery, con))
+                        {
+                            updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                            updateCmd.Parameters.AddWithValue("@name", txtCustomerName.Text);
+                            updateCmd.Parameters.AddWithValue("@phone", txtPhoneNumber.Text);
+                            updateCmd.ExecuteNonQuery();
+                            MessageBox.Show("Room status updated to 'Pending'. \n Please wait until further notice");
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Please fill in your Name and Phone No. \n\n And Phone Number Must be 11 Digits long");
+                    }
+ 
 
                 }
                 else if (currentStatus == "Occupied")
@@ -118,7 +133,7 @@ namespace Laundry___Dormitory
             switch (statusBox.Text)
             {
                 case "Available":
-                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RoomPrice FROM DormTable WHERE RentStatus = 'Available'", con);
+                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RentPrice FROM DormTable WHERE RentStatus = 'Available'", con);
                     reader = cmd.ExecuteReader();
                     dataGridView1.Rows.Clear();
 
@@ -129,7 +144,7 @@ namespace Laundry___Dormitory
                     break;
 
                 case "Occupied":
-                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RoomPrice FROM DormTable WHERE RentStatus = 'Occupied'", con);
+                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RentPrice FROM DormTable WHERE RentStatus = 'Occupied'", con);
                     reader = cmd.ExecuteReader();
                     dataGridView1.Rows.Clear();
 
@@ -140,7 +155,7 @@ namespace Laundry___Dormitory
                     break;
 
                 case "All":
-                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RoomPrice FROM DormTable", con);
+                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RentPrice FROM DormTable", con);
                     reader = cmd.ExecuteReader();
                     dataGridView1.Rows.Clear();
 

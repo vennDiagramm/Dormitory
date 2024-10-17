@@ -305,7 +305,7 @@ namespace Laundry___Dormitory
             }
         }
 
-        private void resetButton_Click(object sender, EventArgs e)
+        private void btn_Reset_Click(object sender, EventArgs e)
         {
             con = cn.getConnection();
             con.Open();
@@ -323,11 +323,12 @@ namespace Laundry___Dormitory
                     if (count > 0) // If a duplicate exists
                     {
                         // Proceed to update if RoomNumber exists
-                        SqlCommand cmd = new SqlCommand("UPDATE DormTable SET TenantName = @TenantName, PhoneNumber = @PhoneNumber, RentStatus = @RentStatus WHERE RoomNumber = @RoomNumber", con);
+                        SqlCommand cmd = new SqlCommand("UPDATE DormTable SET TenantName = @TenantName, PhoneNumber = @PhoneNumber, RentStatus = @RentStatus WHERE RoomNumber = @RoomNumber, RentPrice = @RentPrice", con);
                         cmd.Parameters.AddWithValue("@TenantName", ""); // Use DBNull for null values
                         cmd.Parameters.AddWithValue("@PhoneNumber", "00000000000");
                         cmd.Parameters.AddWithValue("@RentStatus", "Available");
                         cmd.Parameters.AddWithValue("@RoomNumber", RoomCounter);
+                        cmd.Parameters.AddWithValue("@RentPrice", 3000.00);
                         cmd.ExecuteNonQuery();                      
                     }
                     else

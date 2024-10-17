@@ -39,6 +39,8 @@
             this.txtAddPhone = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAddRoom = new System.Windows.Forms.NumericUpDown();
+            this.lblRentPrice = new System.Windows.Forms.Label();
+            this.txtRentPrice = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddRoom)).BeginInit();
             this.SuspendLayout();
@@ -101,7 +103,7 @@
             this.btnAdd_Tenant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd_Tenant.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd_Tenant.Image")));
             this.btnAdd_Tenant.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAdd_Tenant.Location = new System.Drawing.Point(171, 232);
+            this.btnAdd_Tenant.Location = new System.Drawing.Point(171, 282);
             this.btnAdd_Tenant.Name = "btnAdd_Tenant";
             this.btnAdd_Tenant.Size = new System.Drawing.Size(155, 78);
             this.btnAdd_Tenant.TabIndex = 7;
@@ -116,7 +118,7 @@
             this.btnAT_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAT_Back.Image = ((System.Drawing.Image)(resources.GetObject("btnAT_Back.Image")));
             this.btnAT_Back.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAT_Back.Location = new System.Drawing.Point(17, 232);
+            this.btnAT_Back.Location = new System.Drawing.Point(17, 282);
             this.btnAT_Back.Name = "btnAT_Back";
             this.btnAT_Back.Size = new System.Drawing.Size(148, 78);
             this.btnAT_Back.TabIndex = 8;
@@ -163,12 +165,30 @@
             0,
             0});
             // 
+            // lblRentPrice
+            // 
+            this.lblRentPrice.AutoSize = true;
+            this.lblRentPrice.Location = new System.Drawing.Point(12, 233);
+            this.lblRentPrice.Name = "lblRentPrice";
+            this.lblRentPrice.Size = new System.Drawing.Size(101, 25);
+            this.lblRentPrice.TabIndex = 12;
+            this.lblRentPrice.Text = "Rent Price";
+            // 
+            // txtRentPrice
+            // 
+            this.txtRentPrice.Location = new System.Drawing.Point(159, 228);
+            this.txtRentPrice.Name = "txtRentPrice";
+            this.txtRentPrice.Size = new System.Drawing.Size(166, 30);
+            this.txtRentPrice.TabIndex = 13;
+            // 
             // frmAddBoarder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(346, 330);
+            this.ClientSize = new System.Drawing.Size(346, 400);
+            this.Controls.Add(this.txtRentPrice);
+            this.Controls.Add(this.lblRentPrice);
             this.Controls.Add(this.txtAddRoom);
             this.Controls.Add(this.txtAddPhone);
             this.Controls.Add(this.label5);
@@ -209,5 +229,7 @@
         private System.Windows.Forms.TextBox txtAddPhone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown txtAddRoom;
+        private System.Windows.Forms.Label lblRentPrice;
+        private System.Windows.Forms.TextBox txtRentPrice;
     }
 }
