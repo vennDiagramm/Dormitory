@@ -40,11 +40,11 @@ namespace Laundry___Dormitory
                 bool isPhoneNumValid = (inputPhoneNum.Length == 11 && inputPhoneNum.All(char.IsDigit));
                 bool isRoomNumValid = (inputRoomNum.All(char.IsDigit) && !string.IsNullOrEmpty(inputRoomNum));
                 
-                if (isPhoneNumValid && isRoomNumValid) // Checking
+                if (!string.IsNullOrEmpty(txtET_TenantName.Text.Trim()) &&
+                        !string.IsNullOrEmpty(txtET_RentStatus.Text.Trim())) // Check to see if fields are not empty
                 {
                     // Check if other fields are not empty
-                    if (!string.IsNullOrEmpty(txtET_TenantName.Text.Trim()) &&
-                        !string.IsNullOrEmpty(txtET_RentStatus.Text.Trim()))
+                    if (isPhoneNumValid && isRoomNumValid)
                     {
                         // Check if the RoomNumber exists in the database
                         SqlCommand checkRoomNumber = new SqlCommand("SELECT COUNT(*) FROM DormTable WHERE RoomNumber = @RoomNumber", con);
@@ -73,20 +73,20 @@ namespace Laundry___Dormitory
                         }
                         else
                         { // checking if ga exist
-                            MessageBox.Show("Invalid Room Number. This Room Number does not exist.");
+                            MessageBox.Show("Please enter a valid Room Number and Phone Number.");
                         }
                     }
                     else
-                    { // One or more fields are empty
-                        MessageBox.Show("Please fill in all the required fields.");
+                    {   // Invalid PhoneNumber or RoomNumber
+                        if (!isPhoneNumValid || !isRoomNumValid)
+                        {
+                            MessageBox.Show("Please enter a valid Room Number and Phone Number.");
+                        }                     
                     }
                 }
                 else
-                { // Invalid PhoneNumber or RoomNumber
-                    if (!isPhoneNumValid || !isRoomNumValid)  
-                    { 
-                        MessageBox.Show("Please enter a valid Room Number and Phone Number.");
-                    }    
+                {   // One or more fields are empty
+                    MessageBox.Show("Please fill in all the required fields.");
                 }
             }
             catch (Exception ex) 
