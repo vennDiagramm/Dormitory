@@ -19,3 +19,5 @@ Needed to patch: (As OF: 10/13/24)
 	a.) approve tenants	
 			- Dapat mag choose ug kinsa ang dapat e approve
 			- New window, with new table
+
+5.) Fix Reset button for payment

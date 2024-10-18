@@ -59,20 +59,23 @@ namespace Laundry___Dormitory
                 {
                     if (!string.IsNullOrEmpty(txtRM_RoomNumber.Text))
                     {
-                        // Check if the combination of RoomNumber and TenantName exists in the database before deleting
-                        SqlCommand checkTenantCmd = new SqlCommand("SELECT COUNT(*) FROM DormTable WHERE RoomNumber = @RoomNumber", con);
+                        // Check if the TenantName is not empty for the specified RoomNumber
+                        SqlCommand checkTenantCmd = new SqlCommand("SELECT COUNT(*) FROM DormTable WHERE RoomNumber = @RoomNumber AND TenantName IS NOT NULL AND TenantName != ''", con);
                         checkTenantCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
 
-                        int tenantExists = (int)checkTenantCmd.ExecuteScalar(); // Returns the count of records with the RoomNumber and TenantName
+                        int tenantExists = (int)checkTenantCmd.ExecuteScalar(); // Returns the count of records with RoomNumber and a non-empty TenantName
 
                         if (tenantExists > 0)
                         {
-                            // Proceed to delete if the combination exists
-                            SqlCommand deleteCmd = new SqlCommand("DELETE FROM DormTable WHERE RoomNumber = @RoomNumber", con);
-                            deleteCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);                            
+                            // Proceed to delete if the TenantName exists
+                            SqlCommand deleteCmd = new SqlCommand("UPDATE DormTable SET TenantName = @TenantName, PhoneNumber = @PhoneNumber, RentStatus = @RentStatus WHERE RoomNumber = @RoomNumber", con);
+                            deleteCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                            deleteCmd.Parameters.AddWithValue("@TenantName", "");
+                            deleteCmd.Parameters.AddWithValue("@PhoneNumber", "00000000000");
+                            deleteCmd.Parameters.AddWithValue("@RentStatus", "Available");
 
                             deleteCmd.ExecuteNonQuery();
-                            MessageBox.Show("Tenant Information has been successfully deleted!");
+                            MessageBox.Show("Tenant information has been successfully deleted!");
 
                             // Clear the textboxes after deletion                         
                             txtRM_RoomNumber.Text = "";
@@ -82,7 +85,7 @@ namespace Laundry___Dormitory
                         }
                         else
                         {
-                            MessageBox.Show("This tenant does not exist. Please double check.");
+                            MessageBox.Show("This tenant does not exist or has an empty Tenant Name. Please double-check.");
                         }
                     }
                     else
@@ -108,5 +111,7 @@ namespace Laundry___Dormitory
                 }
             }
         }
+
     }
 }
+

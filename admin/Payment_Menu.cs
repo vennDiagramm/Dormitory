@@ -189,8 +189,7 @@ namespace Laundry___Dormitory
                                             updateCmd.Parameters.AddWithValue("@currentReading", currentReading);
                                             updateCmd.Parameters.AddWithValue("@previousReading", prevReading);
                                             updateCmd.Parameters.AddWithValue("@MonthlyWater", monthlyWater);
-                                            //updateCmd.Parameters.AddWithValue("@MonthlyBill", totalCost); - Pwede ra ba e set ang monhtly bill to standar rent price?
-                                            updateCmd.Parameters.AddWithValue("@MonthlyBill", 0.00);
+                                            updateCmd.Parameters.AddWithValue("@MonthlyBill", totalCost); 
                                             updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
                                             updateCmd.Parameters.AddWithValue("@PaymentStatus", "Unpaid");
 
@@ -317,7 +316,7 @@ namespace Laundry___Dormitory
             con = cn.getConnection();
             con.Open();
 
-            cmd = new SqlCommand("update DormTable set PaymentStatus = 'Unpaid', MonthlyPayment = 0.00 ", con);
+            cmd = new SqlCommand("update DormTable set PaymentStatus = 'Unpaid', MonthlyBill = 3000.00 ", con);
             reader = cmd.ExecuteReader();
             PaymentGridView.Rows.Clear();
 
@@ -325,7 +324,7 @@ namespace Laundry___Dormitory
             {
                 PaymentGridView.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString());
             }
-            MessageBox.Show("");
+            MessageBox.Show("Monthly Bill have been successfully set to default rent prie");
             cmd.Dispose();
             reader.Close();
             con.Close();
