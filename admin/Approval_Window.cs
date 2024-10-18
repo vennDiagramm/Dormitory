@@ -115,9 +115,12 @@ namespace Laundry___Dormitory.admin
                 if (currentStatus == "Pending")
                 {
                     // Proceed to update the room status to "Occupied"
-                    string updateStatusQuery = "UPDATE DormTable SET RentStatus = 'Available' WHERE RoomNumber = @RoomNumber";
+                    string updateStatusQuery = "UPDATE DormTable SET TenantName = @TenantName, PhonenNumber = @PhoneNumber, RentStatus = @RentStatus WHERE RoomNumber = @RoomNumber";
                     using (SqlCommand updateCmd = new SqlCommand(updateStatusQuery, con))
                     {
+                        updateCmd.Parameters.AddWithValue("@TenantName", "");
+                        updateCmd.Parameters.AddWithValue("@PhoneNumber", "00000000000");
+                        updateCmd.Parameters.AddWithValue("@RentStatus", "Available");
                         updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
                         updateCmd.ExecuteNonQuery();
                         MessageBox.Show("Tenant is Rejected.");

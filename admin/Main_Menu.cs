@@ -324,7 +324,7 @@ namespace Laundry___Dormitory
                     {
                         // Proceed to update if RoomNumber exists
                         SqlCommand cmd = new SqlCommand("UPDATE DormTable SET TenantName = @TenantName, PhoneNumber = @PhoneNumber, RentStatus = @RentStatus, RentPrice = @RentPrice WHERE RoomNumber = @RoomNumber", con);
-                        cmd.Parameters.AddWithValue("@TenantName", ""); // Use DBNull for null values
+                        cmd.Parameters.AddWithValue("@TenantName", "");
                         cmd.Parameters.AddWithValue("@PhoneNumber", "00000000000");
                         cmd.Parameters.AddWithValue("@RentStatus", "Available");
                         cmd.Parameters.AddWithValue("@RoomNumber", RoomCounter);

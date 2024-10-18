@@ -15,6 +15,24 @@ namespace Laundry___Dormitory
 {
     public partial class CustomerMenu : Form
     {
+        public Point mouseLocation;
+
+        // mouse movement
+        private void mouseDown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        private void mouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePose = Control.MousePosition;
+                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePose;
+            }
+        }
+
         Koneksyon cn = new Koneksyon();
         SqlConnection con;
         SqlCommand cmd;
@@ -97,6 +115,10 @@ namespace Laundry___Dormitory
                             updateCmd.Parameters.AddWithValue("@phone", txtPhoneNumber.Text);
                             updateCmd.ExecuteNonQuery();
                             MessageBox.Show("Room status updated to 'Pending'. \n Please wait until further notice");
+
+                            // remove the info added by the customer
+                            txtCustomerName.Text = "";
+                            txtPhoneNumber.Text = "";
                         }
                     }
                     else
@@ -154,6 +176,17 @@ namespace Laundry___Dormitory
                     }
                     break;
 
+                case "Pending":
+                    cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RentPrice FROM DormTable WHERE RentStatus = 'Pending'", con);
+                    reader = cmd.ExecuteReader();
+                    dataGridView1.Rows.Clear();
+
+                    while (reader.Read())
+                    {
+                        dataGridView1.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString());
+                    }
+                    break;
+
                 case "All":
                     cmd = new SqlCommand("SELECT RentStatus, RoomNumber, RentPrice FROM DormTable", con);
                     reader = cmd.ExecuteReader();
@@ -186,46 +219,3 @@ namespace Laundry___Dormitory
         }
     }
 }
-
-
-// FIRST VERSION
-/**
- private void Viewbtn_Click(object sender, EventArgs e)
-{
-    try
-    {
-        con = cn.getConnection();
-        con.Open();
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        DataTable dt = new DataTable();
-        switch (StatusBox1.Text)
-        {
-            case "Available":
-                cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Available'", con);
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                break;
-
-            case "Occupied":
-                cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable WHERE Status = 'Occupied'", con);
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                break;
-            case "All":
-                cmd = new SqlCommand("SELECT RoomStatus, RoomNumber, RoomPrice FROM DormTable", con);
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                break;
-        }
-    } catch(Exception ex)
-    {
-        MessageBox.Show(ex.Message);
-    }
-    finally
-    {
-        dataGridView1.Dispose();
-        cmd.Dispose();
-        con.Close();
-    }
-}
-*/

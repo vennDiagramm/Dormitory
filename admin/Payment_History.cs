@@ -55,6 +55,7 @@ namespace Laundry___Dormitory.admin
             showDays(DateTime.Now.Month, DateTime.Now.Year);
         }
 
+        // mouse movement
         private void mouseDown(object sender, MouseEventArgs e)
         {
             mouseLocation = new Point(-e.X, -e.Y);
