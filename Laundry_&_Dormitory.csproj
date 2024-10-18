@@ -322,6 +322,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\AAA_IMPORTANT.txt" />
+    <None Include="pics\thumb-up.png" />
+    <None Include="pics\dislike.png" />
+    <None Include="pics\like.png" />
     <None Include="pics\reset %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
