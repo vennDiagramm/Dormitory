@@ -60,11 +60,10 @@ namespace Laundry___Dormitory
                 // Validate if room and phone numbers are valid integers
                 if (int.TryParse(txtAddRoom.Text, out int roomNumber))
                 {
-                    if (roomNumber > 0 && roomNumber <= 20 && txtAddPhone.TextLength == 11)
-                    {
-                        // Ensure fields are not empty
-                        if (!string.IsNullOrEmpty(txtAddRoom.Text) && !string.IsNullOrEmpty(txtAddTenant.Text) &&
+                    if (!string.IsNullOrEmpty(txtAddRoom.Text) && !string.IsNullOrEmpty(txtAddTenant.Text) &&
                             !string.IsNullOrEmpty(txtAddPhone.Text))
+                    {                      
+                        if (txtAddPhone.TextLength == 11)
                         {
                             // Check if the room number exists
                             string checkQuery = "SELECT TenantName FROM DormTable WHERE RoomNumber = @roomNumber";
@@ -109,12 +108,12 @@ namespace Laundry___Dormitory
                         }
                         else
                         {
-                            MessageBox.Show("All fields must be filled out.");
+                            MessageBox.Show("Phone Number must be composed of integers and should have 11 digits.");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Room Number must be within the range of 1 and 20 and the Phone Number must have 11 digits.");
+                        MessageBox.Show("All fields must be filled out.");
                     }
                 }
                 else

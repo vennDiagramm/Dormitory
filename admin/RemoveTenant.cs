@@ -85,7 +85,7 @@ namespace Laundry___Dormitory
                         }
                         else
                         {
-                            MessageBox.Show("This tenant does not exist or has an empty Tenant Name. Please double-check.");
+                            MessageBox.Show("There is no tenant in this room. Please double-check.");
                         }
                     }
                     else
