@@ -72,7 +72,7 @@ namespace Laundry___Dormitory
                                     if (monthlyBill > totalCost)
                                     {
                                         MessageBox.Show("Insufficient Amount!");
-                                    } else if (monthlyBill == 0)
+                                    } else if (monthlyBill == 3000)
                                     {
                                         MessageBox.Show("Lacking information! Calculate first the utilities to get the needed monthly bill!");
                                     }
@@ -102,6 +102,13 @@ namespace Laundry___Dormitory
                                         // Clearing fields
                                         Changelbl.Text = remainingAmountStr;
                                         MessageBox.Show("Transaction Successful");
+                                        txtAP_Room.Text = "";
+                                        txtAP_PrevElectricity.Text = "";
+                                        txtAP_CurrentElectricity.Text = "";
+                                        txtMonthlyWater.Text = "";
+                                        textBox1.Text = "";
+                                        textBox2.Text = "";
+                                        lblTotal.Text = "";
                                     }
                                 }
                                 else
@@ -125,7 +132,7 @@ namespace Laundry___Dormitory
                 }
                 else
                 { // Show error message if room number or phone number are invalid
-                    MessageBox.Show("Please enter valid numeric values for Room Number.");
+                    MessageBox.Show("Room Number and Monthly Pay input fields should not be empty and should have valid numeric values.");
                 }
             }
             catch (Exception ex)
@@ -198,8 +205,7 @@ namespace Laundry___Dormitory
 
                                             if (rowsAffected > 0)
                                             {
-                                                MessageBox.Show("Utilities Updated!");
-
+                                                MessageBox.Show("Utilities Updated!");                                               
                                                 // Display the total cost
                                                 lblTotal.Text = totalCoststr;
                                             }

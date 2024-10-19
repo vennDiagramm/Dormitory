@@ -78,24 +78,11 @@ namespace Laundry___Dormitory
                                 {
                                     cmd = new SqlCommand("update DormTable set TenantName = '" + txtAddTenant.Text + "', PhoneNumber = '" + txtAddPhone.Text + "', RentStatus = '" + "Occupied" + "' where RoomNumber = '" + roomNumber + "'", con);
                                     cmd.ExecuteNonQuery();
-                                    MessageBox.Show("Tenant updated successfully.");
-                                }
-                                // Insert new record if RoomNumber does not exist
-                                else if (tenantNameObj == null || tenantNameObj == DBNull.Value || string.IsNullOrWhiteSpace(tenantNameObj.ToString()))
-                                {
-                                    double rentPrice = (string.IsNullOrEmpty(txtRentPrice.Text) || !double.TryParse(txtRentPrice.Text, out rentPrice)) ? 3000.00 : rentPrice;
-
-                                    cmd = new SqlCommand("insert into DormTable (RoomNumber, TenantName, PhoneNumber, RentPrice, RentStatus) values (@roomNumber,@tenantName,@phoneNumber,@rentPrice,@rentStatus)", con);
-                                    cmd.Parameters.AddWithValue("@roomNumber", roomNumber);
-                                    cmd.Parameters.AddWithValue("@tenantName", txtAddTenant.Text);
-                                    cmd.Parameters.AddWithValue("@phoneNumber", txtAddPhone.Text);
-                                    cmd.Parameters.AddWithValue("@rentPrice", rentPrice);
-                                    cmd.Parameters.AddWithValue("@rentStatus", "Occupied");
-                                    cmd.ExecuteNonQuery();
-                                }
+                                    MessageBox.Show("Tenant added successfully!");
+                                }                              
                                 else
                                 {
-                                    MessageBox.Show("Cannot update. The room is already occupied!");
+                                    MessageBox.Show("The room is already occupied! Please double check.");
                                 }
                             }
 

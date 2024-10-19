@@ -323,12 +323,13 @@ namespace Laundry___Dormitory
                     if (count > 0) // If a duplicate exists
                     {
                         // Proceed to update if RoomNumber exists
-                        SqlCommand cmd = new SqlCommand("UPDATE DormTable SET TenantName = @TenantName, PhoneNumber = @PhoneNumber, RentStatus = @RentStatus, RentPrice = @RentPrice WHERE RoomNumber = @RoomNumber", con);
+                        SqlCommand cmd = new SqlCommand("UPDATE DormTable SET TenantName = @TenantName, PhoneNumber = @PhoneNumber, RentStatus = @RentStatus, MonthlyWater = @MonthlyWater, RentPrice = @RentPrice WHERE RoomNumber = @RoomNumber", con);
                         cmd.Parameters.AddWithValue("@TenantName", "");
                         cmd.Parameters.AddWithValue("@PhoneNumber", "00000000000");
                         cmd.Parameters.AddWithValue("@RentStatus", "Available");
-                        cmd.Parameters.AddWithValue("@RoomNumber", RoomCounter);
+                        cmd.Parameters.AddWithValue("@MonthlyWater", 0);
                         cmd.Parameters.AddWithValue("@RentPrice", 3000.00);
+                        cmd.Parameters.AddWithValue("@RoomNumber", RoomCounter);
                         cmd.ExecuteNonQuery();                      
                     }
                     else
