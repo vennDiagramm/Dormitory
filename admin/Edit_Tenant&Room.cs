@@ -55,11 +55,12 @@ namespace Laundry___Dormitory
                         if (roomExists > 0)
                         {
                             // Proceed to update if RoomNumber exists
-                            SqlCommand cmd = new SqlCommand("UPDATE DormTable SET TenantName = @TenantName, PhoneNumber = @PhoneNumber, RentStatus = @RentStatus WHERE RoomNumber = @RoomNumber", con);
+                            SqlCommand cmd = new SqlCommand("UPDATE DormTable SET TenantName = @TenantName, PhoneNumber = @PhoneNumber, RentStatus = @RentStatus, PaymentStatus = @PaymentStatus WHERE RoomNumber = @RoomNumber", con);
                             cmd.Parameters.AddWithValue("@TenantName", txtET_TenantName.Text.Trim());
                             cmd.Parameters.AddWithValue("@PhoneNumber", inputPhoneNum);
                             cmd.Parameters.AddWithValue("@RentStatus", txtET_RentStatus.Text.Trim());
                             cmd.Parameters.AddWithValue("@RoomNumber", inputRoomNum);
+                            cmd.Parameters.AddWithValue("@PaymentStatus", txtET_paymentStatus.Text.Trim());
 
                             cmd.ExecuteNonQuery();
 

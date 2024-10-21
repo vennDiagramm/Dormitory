@@ -41,6 +41,8 @@
             this.btnE_Back_Click = new System.Windows.Forms.Button();
             this.txtET_RentStatus = new System.Windows.Forms.ComboBox();
             this.txtET_RoomNumber = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtET_paymentStatus = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtET_RoomNumber)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +74,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(20, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 20);
+            this.label1.Size = new System.Drawing.Size(131, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tenant Name";
             // 
@@ -81,7 +83,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 171);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 20);
+            this.label2.Size = new System.Drawing.Size(143, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Phone Number";
             // 
@@ -90,7 +92,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(18, 211);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 20);
+            this.label3.Size = new System.Drawing.Size(134, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Status of Rent";
             // 
@@ -99,7 +101,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(20, 85);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 20);
+            this.label4.Size = new System.Drawing.Size(137, 25);
             this.label4.TabIndex = 4;
             this.label4.Text = "Room Number";
             // 
@@ -107,14 +109,14 @@
             // 
             this.txtET_TenantName.Location = new System.Drawing.Point(193, 127);
             this.txtET_TenantName.Name = "txtET_TenantName";
-            this.txtET_TenantName.Size = new System.Drawing.Size(262, 26);
+            this.txtET_TenantName.Size = new System.Drawing.Size(262, 30);
             this.txtET_TenantName.TabIndex = 5;
             // 
             // txtET_PhoneNum
             // 
             this.txtET_PhoneNum.Location = new System.Drawing.Point(193, 168);
             this.txtET_PhoneNum.Name = "txtET_PhoneNum";
-            this.txtET_PhoneNum.Size = new System.Drawing.Size(262, 26);
+            this.txtET_PhoneNum.Size = new System.Drawing.Size(262, 30);
             this.txtET_PhoneNum.TabIndex = 8;
             // 
             // editButton
@@ -123,7 +125,7 @@
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(277, 273);
+            this.editButton.Location = new System.Drawing.Point(279, 319);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(192, 53);
             this.editButton.TabIndex = 10;
@@ -137,7 +139,7 @@
             this.btnE_Back_Click.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnE_Back_Click.Image = ((System.Drawing.Image)(resources.GetObject("btnE_Back_Click.Image")));
             this.btnE_Back_Click.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnE_Back_Click.Location = new System.Drawing.Point(21, 273);
+            this.btnE_Back_Click.Location = new System.Drawing.Point(23, 319);
             this.btnE_Back_Click.Name = "btnE_Back_Click";
             this.btnE_Back_Click.Size = new System.Drawing.Size(192, 53);
             this.btnE_Back_Click.TabIndex = 11;
@@ -154,7 +156,7 @@
             "Under Maintenance"});
             this.txtET_RentStatus.Location = new System.Drawing.Point(193, 208);
             this.txtET_RentStatus.Name = "txtET_RentStatus";
-            this.txtET_RentStatus.Size = new System.Drawing.Size(262, 28);
+            this.txtET_RentStatus.Size = new System.Drawing.Size(262, 33);
             this.txtET_RentStatus.TabIndex = 12;
             // 
             // txtET_RoomNumber
@@ -166,7 +168,7 @@
             0,
             0});
             this.txtET_RoomNumber.Name = "txtET_RoomNumber";
-            this.txtET_RoomNumber.Size = new System.Drawing.Size(262, 26);
+            this.txtET_RoomNumber.Size = new System.Drawing.Size(262, 30);
             this.txtET_RoomNumber.TabIndex = 14;
             this.txtET_RoomNumber.Value = new decimal(new int[] {
             1,
@@ -174,12 +176,35 @@
             0,
             0});
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 258);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(150, 25);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Payment Status";
+            // 
+            // txtET_paymentStatus
+            // 
+            this.txtET_paymentStatus.FormattingEnabled = true;
+            this.txtET_paymentStatus.Items.AddRange(new object[] {
+            "Availbale",
+            "Occupied",
+            "Overdue"});
+            this.txtET_paymentStatus.Location = new System.Drawing.Point(193, 255);
+            this.txtET_paymentStatus.Name = "txtET_paymentStatus";
+            this.txtET_paymentStatus.Size = new System.Drawing.Size(262, 33);
+            this.txtET_paymentStatus.TabIndex = 16;
+            // 
             // Edit_Tenant_Room
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(481, 338);
+            this.ClientSize = new System.Drawing.Size(481, 393);
+            this.Controls.Add(this.txtET_paymentStatus);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtET_RoomNumber);
             this.Controls.Add(this.txtET_RentStatus);
             this.Controls.Add(this.btnE_Back_Click);
@@ -221,5 +246,7 @@
         private System.Windows.Forms.Button btnE_Back_Click;
         private System.Windows.Forms.ComboBox txtET_RentStatus;
         private System.Windows.Forms.NumericUpDown txtET_RoomNumber;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox txtET_paymentStatus;
     }
 }
