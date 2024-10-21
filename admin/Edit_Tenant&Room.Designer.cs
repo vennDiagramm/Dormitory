@@ -189,8 +189,8 @@
             // 
             this.txtET_paymentStatus.FormattingEnabled = true;
             this.txtET_paymentStatus.Items.AddRange(new object[] {
-            "Availbale",
-            "Occupied",
+            "Paid",
+            "Unpaid",
             "Overdue"});
             this.txtET_paymentStatus.Location = new System.Drawing.Point(193, 255);
             this.txtET_paymentStatus.Name = "txtET_paymentStatus";

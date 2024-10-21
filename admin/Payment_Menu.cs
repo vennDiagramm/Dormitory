@@ -169,56 +169,72 @@ namespace Laundry___Dormitory
                             !string.IsNullOrEmpty(txtAP_CurrentElectricity.Text) &&
                             !string.IsNullOrEmpty(txtAP_Room.Text))
                         {
-                            // Create the SQL query to retrieve the rent price for the specified room number
-                            string selectQuery = "SELECT RentPrice FROM DormTable WHERE RoomNumber = @roomNumber";
-                            using (SqlCommand selectCmd = new SqlCommand(selectQuery, con))
+                            // Check if TenantName is not empty for the given RoomNumber
+                            string checkTenantQuery = "SELECT TenantName FROM DormTable WHERE RoomNumber = @roomNumber";
+                            using (SqlCommand checkTenantCmd = new SqlCommand(checkTenantQuery, con))
                             {
-                                selectCmd.Parameters.AddWithValue("@roomNumber", roomNumber);
+                                checkTenantCmd.Parameters.AddWithValue("@roomNumber", roomNumber);
 
-                                using (SqlDataReader reader = selectCmd.ExecuteReader())
+                                object tenantNameObj = checkTenantCmd.ExecuteScalar();
+                                if (tenantNameObj is string tenantName && !string.IsNullOrEmpty(tenantName))
                                 {
-                                    // Retrieve rent price from the table
-                                    if (reader.Read())
+                                    // Proceed with the update if TenantName is not empty
+                                    string selectQuery = "SELECT RentPrice FROM DormTable WHERE RoomNumber = @roomNumber";
+                                    using (SqlCommand selectCmd = new SqlCommand(selectQuery, con))
                                     {
-                                        double rentPrice = Convert.ToDouble(reader["RentPrice"]);
+                                        selectCmd.Parameters.AddWithValue("@roomNumber", roomNumber);
 
-                                        // Calculation for total cost
-                                        double totalCost = (Math.Abs(prevReading - currentReading) * 11) + monthlyWater + rentPrice;
-                                        string totalCoststr = totalCost.ToString("F2");
-
-                                        reader.Close(); // Close the reader before executing the next command
-
-                                        // Create the SQL query to update the utilities cost for the specified room number
-                                        string updateQuery = "UPDATE DormTable SET CurrentReading = @currentReading, PreviousReading = @previousReading, MonthlyWater = @MonthlyWater, MonthlyBill = @MonthlyBill, PaymentStatus = @PaymentStatus WHERE RoomNumber = @RoomNumber";
-                                        using (SqlCommand updateCmd = new SqlCommand(updateQuery, con))
+                                        using (SqlDataReader reader = selectCmd.ExecuteReader())
                                         {
-                                            // Bind the parameters to the values from the text boxes
-                                            updateCmd.Parameters.AddWithValue("@currentReading", currentReading);
-                                            updateCmd.Parameters.AddWithValue("@previousReading", prevReading);
-                                            updateCmd.Parameters.AddWithValue("@MonthlyWater", monthlyWater);
-                                            updateCmd.Parameters.AddWithValue("@MonthlyBill", totalCost); 
-                                            updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
-                                            updateCmd.Parameters.AddWithValue("@PaymentStatus", "Unpaid");
-
-                                            // Execute the update query
-                                            int rowsAffected = updateCmd.ExecuteNonQuery();
-
-                                            if (rowsAffected > 0)
+                                            // Retrieve rent price from the table
+                                            if (reader.Read())
                                             {
-                                                MessageBox.Show("Utilities Updated!");                                               
-                                                // Display the total cost
-                                                lblTotal.Text = totalCoststr;
+                                                double rentPrice = Convert.ToDouble(reader["RentPrice"]);
+
+                                                // Calculation for total cost
+                                                double totalCost = (Math.Abs(prevReading - currentReading) * 11) + monthlyWater + rentPrice;
+                                                string totalCoststr = totalCost.ToString("F2");
+
+                                                reader.Close(); // Close the reader before executing the next command
+
+                                                // Create the SQL query to update the utilities cost for the specified room number
+                                                string updateQuery = "UPDATE DormTable SET CurrentReading = @currentReading, PreviousReading = @previousReading, MonthlyWater = @MonthlyWater, MonthlyBill = @MonthlyBill, PaymentStatus = @PaymentStatus WHERE RoomNumber = @RoomNumber";
+                                                using (SqlCommand updateCmd = new SqlCommand(updateQuery, con))
+                                                {
+                                                    // Bind the parameters to the values from the text boxes
+                                                    updateCmd.Parameters.AddWithValue("@currentReading", currentReading);
+                                                    updateCmd.Parameters.AddWithValue("@previousReading", prevReading);
+                                                    updateCmd.Parameters.AddWithValue("@MonthlyWater", monthlyWater);
+                                                    updateCmd.Parameters.AddWithValue("@MonthlyBill", totalCost);
+                                                    updateCmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                                                    updateCmd.Parameters.AddWithValue("@PaymentStatus", "Unpaid");
+
+                                                    // Execute the update query
+                                                    int rowsAffected = updateCmd.ExecuteNonQuery();
+
+                                                    if (rowsAffected > 0)
+                                                    {
+                                                        MessageBox.Show("Utilities Updated!");
+                                                        // Display the total cost
+                                                        lblTotal.Text = totalCoststr;
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Room Number not found.");
+                                                    }
+                                                }
                                             }
                                             else
                                             {
-                                                MessageBox.Show("Room Number not found.");
+                                                MessageBox.Show("No record found for the specified room's rent price.");
                                             }
                                         }
                                     }
-                                    else
-                                    {
-                                        MessageBox.Show("No record found for the specified room's rent price.");
-                                    }
+                                }
+                                else
+                                {
+                                    // Show message if TenantName is empty
+                                    MessageBox.Show("There is no tenant in this room.");
                                 }
                             }
                         }
@@ -249,6 +265,7 @@ namespace Laundry___Dormitory
                 }
             }
         }
+
 
 
         // para inig sulod mo load dayon
@@ -330,7 +347,7 @@ namespace Laundry___Dormitory
             {
                 PaymentGridView.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString());
             }
-            MessageBox.Show("Monthly Bill have been successfully set to default rent prie");
+            MessageBox.Show("Monthly Bill have been successfully set to default rent price");
             cmd.Dispose();
             reader.Close();
             con.Close();
@@ -412,5 +429,5 @@ namespace Laundry___Dormitory
             }
             finally { formBackground.Dispose(); }
         }
-        }
+    }
 }
